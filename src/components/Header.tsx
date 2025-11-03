@@ -1,35 +1,18 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
-    <header className="fixed w-full top-0 z-50">
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center">
-            <img src="/assets/images/logo.svg" alt="Saanvi Healthcare" className="h-12" />
-          </Link>
-          
-          <button className="menu-btn md:hidden">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-          </button>
-
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="nav-link">Home</Link>
-            <Link to="/about" className="nav-link">About</Link>
-            <Link to="/services" className="nav-link">Services</Link>
-            <Link to="/treatments" className="nav-link">Treatments</Link>
-            <Link to="/blog" className="nav-link">Blog</Link>
-            <Link to="/contact" className="nav-link">Contact</Link>
-            <Link 
-              to="/appointment" 
-              className="btn-primary"
-            >
-              Book Appointment
-            </Link>
-          </nav>
-        </div>
+    <header className="bg-white shadow-md fixed w-full z-10">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 className="text-2xl font-bold text-green-800">Saanvi Healthcare Centre</h1>
+        <nav className="hidden md:flex space-x-6 font-medium">
+          <a href="index.html" className="text-green-700 font-semibold">Home</a>
+          <a href="about.html" className="hover:text-green-700">About</a>
+          <a href="services.html" className="hover:text-green-700">Services</a>
+          <a href="appointment.html" className="hover:text-green-700">Appointment</a>
+          <a href="blog.html" className="hover:text-green-700">Blog</a>
+          <a href="contact.html" className="hover:text-green-700">Contact</a>
+        </nav>
       </div>
     </header>
   );

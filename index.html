@@ -1,19 +1,161 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="stylesheet" href="/assets/style.css" />
-    <title>Saanvi Healthcare Centre</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <script src="/assets/script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Saanvi Healthcare Centre – Your trusted destination for integrative medicine, combining modern healthcare with Ayurvedic wisdom. Led by Dr. Dhirendra Yadav and Dr. Sunitha Yadav." />
+  <meta name="keywords" content="Saanvi Healthcare Centre, Dr Dhirendra Yadav, Dr Sunitha Yadav, Ayurveda, General Physician, Diabetologist, Integrative Medicine, Holistic Health" />
+  <title>Home | Saanvi Healthcare Centre</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a2d9b6b6f3.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-green-50 text-gray-800 font-sans">
+  <!-- HEADER -->
+  <header class="bg-white shadow-md fixed w-full z-10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-green-800">Saanvi Healthcare Centre</h1>
+      <nav class="hidden md:flex space-x-6 font-medium">
+        <a href="index.html" class="text-green-700 font-semibold">Home</a>
+        <a href="about.html" class="hover:text-green-700">About</a>
+        <a href="services.html" class="hover:text-green-700">Services</a>
+        <a href="appointment.html" class="hover:text-green-700">Appointment</a>
+        <a href="blog.html" class="hover:text-green-700">Blog</a>
+        <a href="contact.html" class="hover:text-green-700">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative bg-cover bg-center h-screen flex items-center justify-center text-white" style="background-image: url('https://img.freepik.com/free-photo/doctor-with-stethoscope-in-hospital_23-2148827776.jpg');">
+    <div class="absolute inset-0 bg-green-900 opacity-70"></div>
+    <div class="relative z-10 text-center max-w-3xl mx-auto px-6">
+      <h2 class="text-5xl font-bold leading-tight mb-4">Your Journey to Holistic Health Starts Here</h2>
+      <p class="text-xl mb-8">Integrating Modern Medicine with Ancient Ayurvedic Wisdom for Complete Wellness.</p>
+      <a href="appointment.html" class="bg-white text-green-700 px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-100 transition duration-300">Book an Appointment</a>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="py-20 bg-green-50">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h3 class="text-4xl font-bold text-green-800 mb-12">Our Comprehensive Services</h3>
+      <div class="grid md:grid-cols-3 gap-10">
+        <!-- Service 1: General Physician & Diabetology -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition duration-300">
+          <i class="fas fa-stethoscope text-5xl text-green-600 mb-6"></i>
+          <h4 class="text-2xl font-semibold text-green-800 mb-4">General Physician & Diabetology</h4>
+          <p class="text-gray-700 leading-relaxed">Expert consultation for general health concerns, chronic disease management, and specialized care for diabetes.</p>
+          <a href="services.html#general" class="mt-6 inline-block text-green-700 font-medium hover:underline">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+        </div>
+        <!-- Service 2: Ayurvedic Healing -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition duration-300">
+          <i class="fas fa-leaf text-5xl text-green-600 mb-6"></i>
+          <h4 class="text-2xl font-semibold text-green-800 mb-4">Ayurvedic Healing & Therapies</h4>
+          <p class="text-gray-700 leading-relaxed">Traditional Ayurvedic treatments, Panchakarma, herbal remedies, and lifestyle guidance for holistic well-being.</p>
+          <a href="services.html#ayurveda" class="mt-6 inline-block text-green-700 font-medium hover:underline">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+        </div>
+        <!-- Service 3: Integrative Medicine -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition duration-300">
+          <i class="fas fa-hand-holding-heart text-5xl text-green-600 mb-6"></i>
+          <h4 class="text-2xl font-semibold text-green-800 mb-4">Integrative & Preventive Care</h4>
+          <p class="text-gray-700 leading-relaxed">A balanced approach combining modern diagnostics with natural therapies for long-term health and prevention.</p>
+          <a href="services.html#integrative" class="mt-6 inline-block text-green-700 font-medium hover:underline">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT PREVIEW SECTION -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <img src="https://img.freepik.com/free-photo/medical-team-hospital_23-2149140848.jpg" alt="Clinic Interior" class="rounded-2xl shadow-lg">
+      </div>
+      <div>
+        <h3 class="text-4xl font-bold text-green-800 mb-6">About Saanvi Healthcare Centre</h3>
+        <p class="text-gray-700 text-lg leading-relaxed mb-4">
+          Founded by Dr. Dhirendra Yadav and Dr. Sunitha Yadav, Saanvi Healthcare Centre is a beacon of integrative health. We blend the precision of modern medicine with the profound wisdom of Ayurveda to offer truly holistic care.
+        </p>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          Our mission is to empower individuals on their journey to optimal health, providing personalized treatments that address the root cause of illness and promote sustainable well-being.
+        </p>
+        <a href="about.html" class="mt-8 inline-block bg-green-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-800 transition duration-300">Read Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="py-20 bg-green-100">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h3 class="text-4xl font-bold text-green-800 mb-12">What Our Patients Say</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- Testimonial 1 -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-left">
+          <p class="text-gray-700 italic mb-6">"Saanvi Healthcare Centre changed my life. The integrative approach helped me manage my diabetes effectively, and I feel healthier than ever!"</p>
+          <p class="font-semibold text-green-800">- Priya Sharma</p>
+          <p class="text-sm text-gray-600">Patient</p>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-left">
+          <p class="text-gray-700 italic mb-6">"Dr. Sunitha's Ayurvedic treatments brought immense relief for my chronic pain. I highly recommend their holistic care."</p>
+          <p class="font-semibold text-green-800">- Rajesh Kumar</p>
+          <p class="text-sm text-gray-600">Patient</p>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-left">
+          <p class="text-gray-700 italic mb-6">"The doctors here are truly compassionate and knowledgeable. They take the time to understand your concerns and provide personalized care."</p>
+          <p class="font-semibold text-green-800">- Anjali Singh</p>
+          <p class="text-sm text-gray-600">Patient</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h3 class="text-4xl font-bold text-green-800 mb-12">Get in Touch</h3>
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="text-lg text-gray-700 mb-4">Have questions or want to book an appointment? Reach out to us!</p>
+          <ul class="text-left text-gray-700 space-y-3 text-lg">
+            <li><i class="fas fa-map-marker-alt text-green-700 mr-3"></i> 123 Health Lane, Wellness City, India</li>
+            <li><i class="fas fa-phone-alt text-green-700 mr-3"></i> +91 98765 43210</li>
+            <li><i class="fas fa-envelope text-green-700 mr-3"></i> info@saanvihealthcare.com</li>
+          </ul>
+          <div class="mt-8 flex justify-center md:justify-start space-x-4">
+            <a href="#" class="text-green-700 hover:text-green-900 text-2xl"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-green-700 hover:text-green-900 text-2xl"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-green-700 hover:text-green-900 text-2xl"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-green-700 hover:text-green-900 text-2xl"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div>
+          <form class="bg-green-50 p-8 rounded-2xl shadow-lg text-left">
+            <div class="mb-4">
+              <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
+              <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Your Name">
+            </div>
+            <div class="mb-4">
+              <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+              <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Your Email">
+            </div>
+            <div class="mb-6">
+              <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
+              <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="bg-green-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-800 transition duration-300">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-green-900 text-green-100 py-8 text-center">
+    <p class="text-lg font-semibold">Saanvi Healthcare Centre</p>
+    <p class="text-sm mt-2">© 2025 All Rights Reserved | Holistic Healing through Modern Medicine & Ayurveda</p>
+  </footer>
+</body>
 </html>

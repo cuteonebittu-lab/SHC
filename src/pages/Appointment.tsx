@@ -6,28 +6,28 @@ import { Helmet } from 'react-helmet';
 
 // Form validation schema
 const appointmentSchema = z.object({
-  name: z.string().min(3, 'Name must be at least 3 characters'),
-  phone: z.string().regex(/^[0-9]{10}$/, 'Please enter a valid 10-digit phone number'),
-  email: z.string().email('Please enter a valid email').optional().or(z.literal('')),
-  service: z.enum(['General Medicine', 'Ayurveda', 'Panchakarma Therapy', 'Follow-up Visit']),
-  date: z.string().refine((val) => {
+  fullName: z.string().min(3, 'Full Name must be at least 3 characters'),
+  age: z.string().regex(/^\d+$/, 'Age must be a number').optional().or(z.literal('')),
+  gender: z.enum(['Male', 'Female', 'Other', ''], { message: 'Please select a gender' }),
+  mobileNumber: z.string().regex(/^[0-9]{10}$/, 'Please enter a valid 10-digit mobile number'),
+  emailAddress: z.string().email('Please enter a valid email').optional().or(z.literal('')),
+  preferredDoctor: z.enum([
+    'Dr. Dhirendra Yadav - Consultant Physician (MBBS, MD Internal Medicine, CCDM)',
+    'Dr. Sunitha Yadav - Consultant Ayurveda Physician (BAMS, MD Ayurveda Medicine)',
+    ''
+  ], { message: 'Please select a doctor' }),
+  consultationType: z.enum(['In-Clinic Visit', 'Online Video Consultation', ''], { message: 'Please select a consultation type' }),
+  preferredDate: z.string().refine((val) => {
     const selectedDate = new Date(val);
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     return selectedDate >= today;
   }, 'Please select a future date'),
-  time: z.string().min(1, 'Please select a time slot'),
-  message: z.string().optional(),
+  preferredTime: z.string().min(1, 'Please select a time'),
+  additionalMessage: z.string().optional(),
 });
 
 type AppointmentFormData = z.infer<typeof appointmentSchema>;
-
-const timeSlots = [
-  '10:00 AM - 12:00 PM',
-  '12:00 PM - 2:00 PM',
-  '4:00 PM - 6:00 PM',
-  '6:00 PM - 8:00 PM',
-];
 
 const Appointment = () => {
   const {
@@ -41,12 +41,16 @@ const Appointment = () => {
   const onSubmit = async (data: AppointmentFormData) => {
     // Format the message for WhatsApp
     const text = `Hello! I would like to book an appointment at Saanvi Healthcare Centre.
-Name: ${data.name}
-Phone: ${data.phone}
-Service: ${data.service}
-Date: ${data.date}
-Time: ${data.time}
-Message: ${data.message || 'No additional notes'}`;
+Full Name: ${data.fullName}
+Age: ${data.age || 'N/A'}
+Gender: ${data.gender || 'N/A'}
+Mobile Number: ${data.mobileNumber}
+Email Address: ${data.emailAddress || 'N/A'}
+Preferred Doctor: ${data.preferredDoctor}
+Consultation Type: ${data.consultationType}
+Preferred Date: ${data.preferredDate}
+Preferred Time: ${data.preferredTime}
+Additional Message: ${data.additionalMessage || 'No additional notes'}`;
 
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/91XXXXXXXXXX?text=${encodedText}`, '_blank');
@@ -58,163 +62,207 @@ Message: ${data.message || 'No additional notes'}`;
         <title>Book Appointment | Saanvi Healthcare Centre</title>
         <meta 
           name="description" 
-          content="Book your appointment with our General Medicine and Ayurveda doctors at Saanvi Healthcare Centre."
+          content="Book your appointment at Saanvi Healthcare Centre with our expert General Physician or Ayurveda Specialist."
         />
+        <meta name="keywords" content="Book doctor appointment, General Physician, Ayurveda Doctor, Saanvi Healthcare Centre" />
       </Helmet>
 
-      {/* Hero Section */}
+      {/* HERO */}
       <motion.section 
-        className="pt-28 pb-12 bg-green-50 text-center"
+        className="pt-32 pb-12 bg-green-100 text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-w-3xl mx-auto px-6">
-          <h1 className="text-4xl font-bold text-green-800 mb-4">Book Your Appointment</h1>
-          <p className="text-gray-700">
-            Consult our experienced <b>General Medicine</b> and <b>Ayurveda</b> doctors for holistic healing and personalized care.
-          </p>
-        </div>
+        <h2 className="text-4xl font-bold text-green-800">Book Your Appointment</h2>
+        <p className="text-lg text-gray-700 mt-3">Choose your preferred doctor, date, and consultation type below.</p>
       </motion.section>
 
-      {/* Appointment Form Section */}
+      {/* FORM SECTION */}
       <motion.section 
-        className="py-16 bg-white"
+        className="py-16"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
       >
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-green-50 shadow-lg rounded-2xl p-8">
-            <h2 className="text-2xl font-semibold text-green-800 text-center mb-6">Appointment Form</h2>
-            
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              {/* Name */}
+        <div className="max-w-4xl mx-auto bg-white p-10 rounded-2xl shadow-xl">
+          <h3 className="text-2xl font-semibold text-green-800 mb-6 text-center">Patient Information</h3>
+
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            {/* Name */}
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Full Name</label>
+              <input 
+                type="text" 
+                placeholder="Enter your full name" 
+                className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                {...register('fullName')} 
+              />
+              {errors.fullName && (
+                <p className="mt-1 text-red-600 text-sm">{errors.fullName.message}</p>
+              )}
+            </div>
+
+            {/* Age & Gender */}
+            <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Full Name *</label>
-                <input
-                  type="text"
-                  {...register('name')}
-                  className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600"
-                  placeholder="Enter your full name"
+                <label className="block text-gray-700 font-medium mb-2">Age</label>
+                <input 
+                  type="number" 
+                  placeholder="Your age" 
+                  className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                  {...register('age')} 
                 />
-                {errors.name && (
-                  <p className="mt-1 text-red-600 text-sm">{errors.name.message}</p>
+                {errors.age && (
+                  <p className="mt-1 text-red-600 text-sm">{errors.age.message}</p>
                 )}
               </div>
-
-              {/* Phone */}
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Phone Number *</label>
-                <input
-                  type="tel"
-                  {...register('phone')}
-                  className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600"
-                  placeholder="Enter 10-digit mobile number"
-                />
-                {errors.phone && (
-                  <p className="mt-1 text-red-600 text-sm">{errors.phone.message}</p>
+                <label className="block text-gray-700 font-medium mb-2">Gender</label>
+                <select 
+                  className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                  {...register('gender')}
+                >
+                  <option value="">Select Gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
+                </select>
+                {errors.gender && (
+                  <p className="mt-1 text-red-600 text-sm">{errors.gender.message}</p>
                 )}
               </div>
+            </div>
 
-              {/* Email */}
+            {/* Contact Info */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">Mobile Number</label>
+                <input 
+                type="tel" 
+                placeholder="Enter your mobile number" 
+                className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                {...register('mobileNumber')} 
+              />
+                {errors.mobileNumber && (
+                  <p className="mt-1 text-red-600 text-sm">{errors.mobileNumber.message}</p>
+                )}
+              </div>
               <div>
                 <label className="block text-gray-700 font-medium mb-2">Email Address</label>
-                <input
-                  type="email"
-                  {...register('email')}
-                  className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600"
-                  placeholder="Enter your email (optional)"
+                <input 
+                  type="email" 
+                  placeholder="Enter your email (optional)" 
+                  className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                  {...register('emailAddress')} 
                 />
-                {errors.email && (
-                  <p className="mt-1 text-red-600 text-sm">{errors.email.message}</p>
+                {errors.emailAddress && (
+                  <p className="mt-1 text-red-600 text-sm">{errors.emailAddress.message}</p>
                 )}
               </div>
+            </div>
 
-              {/* Service Type */}
+            {/* Doctor Selection */}
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Preferred Doctor</label>
+              <select 
+                className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                {...register('preferredDoctor')} 
+              >
+                <option value="">Select Doctor</option>
+                <option>Dr. Dhirendra Yadav - Consultant Physician (MBBS, MD Internal Medicine, CCDM)</option>
+                <option>Dr. Sunitha Yadav - Consultant Ayurveda Physician (BAMS, MD Ayurveda Medicine)</option>
+              </select>
+              {errors.preferredDoctor && (
+                <p className="mt-1 text-red-600 text-sm">{errors.preferredDoctor.message}</p>
+              )}
+            </div>
+
+            {/* Consultation Type */}
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Consultation Type</label>
+              <select 
+                className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                {...register('consultationType')} 
+              >
+                <option value="">Select Type</option>
+                <option>In-Clinic Visit</option>
+                <option>Online Video Consultation</option>
+              </select>
+              {errors.consultationType && (
+                <p className="mt-1 text-red-600 text-sm">{errors.consultationType.message}</p>
+              )}
+            </div>
+
+            {/* Date & Time */}
+            <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Consultation Type *</label>
-                <select
-                  {...register('service')}
-                  className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600"
-                >
-                  <option value="">Select a service</option>
-                  <option value="General Medicine">General Medicine Consultation</option>
-                  <option value="Ayurveda">Ayurveda Consultation</option>
-                  <option value="Panchakarma Therapy">Panchakarma / Detox Therapy</option>
-                  <option value="Follow-up Visit">Follow-up Visit</option>
-                </select>
-                {errors.service && (
-                  <p className="mt-1 text-red-600 text-sm">{errors.service.message}</p>
+                <label className="block text-gray-700 font-medium mb-2">Preferred Date</label>
+                <input 
+                type="date" 
+                className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                {...register('preferredDate')} 
+              />
+                {errors.preferredDate && (
+                  <p className="mt-1 text-red-600 text-sm">{errors.preferredDate.message}</p>
                 )}
               </div>
-
-              {/* Date */}
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Preferred Date *</label>
-                <input
-                  type="date"
-                  {...register('date')}
-                  className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600"
-                />
-                {errors.date && (
-                  <p className="mt-1 text-red-600 text-sm">{errors.date.message}</p>
+                <label className="block text-gray-700 font-medium mb-2">Preferred Time</label>
+                <input 
+                type="time" 
+                className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                {...register('preferredTime')} 
+              />
+                {errors.preferredTime && (
+                  <p className="mt-1 text-red-600 text-sm">{errors.preferredTime.message}</p>
                 )}
               </div>
+            </div>
 
-              {/* Time */}
-              <div>
-                <label className="block text-gray-700 font-medium mb-2">Preferred Time *</label>
-                <select
-                  {...register('time')}
-                  className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600"
-                >
-                  <option value="">Select time slot</option>
-                  {timeSlots.map((slot) => (
-                    <option key={slot} value={slot}>
-                      {slot}
-                    </option>
-                  ))}
-                </select>
-                {errors.time && (
-                  <p className="mt-1 text-red-600 text-sm">{errors.time.message}</p>
-                )}
-              </div>
+            {/* Message */}
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Additional Message / Health Concern</label>
+              <textarea 
+                rows={4} 
+                placeholder="Briefly describe your concern..." 
+                className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                {...register('additionalMessage')}
+              ></textarea>
+            </div>
 
-              {/* Message */}
-              <div>
-                <label className="block text-gray-700 font-medium mb-2">Additional Notes</label>
-                <textarea
-                  {...register('message')}
-                  rows={4}
-                  className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600"
-                  placeholder="Mention any specific health concerns or details..."
-                />
-              </div>
-
-              {/* Submit Buttons */}
-              <div className="text-center">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full md:w-auto px-8 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? 'Submitting...' : 'Submit Appointment'}
-                </button>
-                <p className="text-gray-600 mt-4">or</p>
-                <a
-                  href="https://wa.me/91XXXXXXXXXX"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center mt-2 bg-green-500 text-white font-semibold px-5 py-3 rounded-full hover:bg-green-600 transition-all"
-                >
-                  <i className="fab fa-whatsapp mr-2"></i> Book via WhatsApp
-                </a>
-              </div>
-            </form>
-          </div>
+            {/* Submit Button */}
+            <div className="text-center">
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="bg-green-700 text-white px-10 py-3 rounded-full font-semibold hover:bg-green-800 transition"
+              >
+                {isSubmitting ? 'Submitting...' : 'Submit Appointment Request'}
+              </button>
+            </div>
+          </form>
         </div>
       </motion.section>
+
+      {/* GOOGLE MAP */}
+      <section className="py-16 bg-green-100">
+        <div className="max-w-5xl mx-auto text-center px-6">
+          <h3 className="text-3xl font-bold text-green-800 mb-6">Visit Our Clinic</h3>
+          <p className="text-gray-700 mb-4">
+            Saanvi Healthcare Centre<br/>
+            [Add your full address here, e.g., "Near City Hospital, Main Road, Indore, Madhya Pradesh, India"]
+          </p>
+
+          {/* Replace with your actual Google Map embed */}
+          <div className="w-full h-96 rounded-xl overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.7364564546727!2d75.8648458747445!3d23.802446290235376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39636e0d982eefff%3A0xb8c537a7bb5b3d53!2sSaanvi%20Healthcare%20Centre!5e0!3m2!1sen!2sin!4v1729856400000!5m2!1sen!2sin"
+              width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
