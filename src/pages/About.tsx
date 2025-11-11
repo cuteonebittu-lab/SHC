@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import DoctorCard from '../components/DoctorCard';
+import EditableText from '../components/EditableText';
+import EditableImage from '../components/EditableImage';
 
 const doctors = [
   {
@@ -30,19 +32,38 @@ const About = () => {
         <title>About Us | Saanvi Healthcare Centre</title>
         <meta name="description" content="Learn more about Saanvi Healthcare Centre — your trusted clinic for integrated General Medicine and Ayurveda care." />
       </Helmet>
+      
       {/* About Hero */}
       <section className="pt-24 pb-16 bg-green-50">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <div className="flex items-center justify-center mb-6">
-              <img src="/assets/images/logo.svg" alt="Saanvi Healthcare Centre Logo" className="h-16 mr-4" />
-              <h1 className="text-4xl font-bold text-green-800">About Saanvi Healthcare Centre</h1>
+              <EditableImage
+                page="about"
+                section="hero"
+                field="logo"
+                defaultSrc="/assets/images/logo.svg"
+                alt="Saanvi Healthcare Centre Logo"
+                className="h-16 mr-4"
+              />
+              <EditableText
+                page="about"
+                section="hero"
+                field="title"
+                defaultValue="About Saanvi Healthcare Centre"
+                tag="h1"
+                className="text-4xl font-bold text-green-800"
+              />
             </div>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              At our centre, we believe true health is a harmony of body, mind, and nature. 
-              Our clinic brings together the precision of modern medical science with the ancient wisdom of Ayurveda 
-              to provide complete, compassionate care for every individual.
-            </p>
+            <EditableText
+              page="about"
+              section="hero"
+              field="description"
+              defaultValue="At our centre, we believe true health is a harmony of body, mind, and nature. Our clinic brings together the precision of modern medical science with the ancient wisdom of Ayurveda to provide complete, compassionate care for every individual."
+              tag="p"
+              className="text-lg text-gray-700 leading-relaxed"
+              multiline={true}
+            />
           </div>
         </div>
       </section>
@@ -52,65 +73,33 @@ const About = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
-              <p className="text-gray-600 mb-4">
-                Our mission is to provide comprehensive healthcare by integrating
-                modern medical practices with traditional Ayurvedic wisdom. We
-                believe in:
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <svg
-                    className="w-6 h-6 text-primary-600 mr-2 mt-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  <span>Holistic approach to healing</span>
-                </li>
-                <li className="flex items-start">
-                  <svg
-                    className="w-6 h-6 text-primary-600 mr-2 mt-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  <span>Personalized treatment plans</span>
-                </li>
-                <li className="flex items-start">
-                  <svg
-                    className="w-6 h-6 text-primary-600 mr-2 mt-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  <span>Preventive healthcare</span>
-                </li>
-              </ul>
+              <EditableText
+                page="about"
+                section="mission"
+                field="title"
+                defaultValue="Our Mission"
+                tag="h2"
+                className="text-3xl font-bold mb-6"
+              />
+              <EditableText
+                page="about"
+                section="mission"
+                field="description"
+                defaultValue="Our mission is to provide comprehensive healthcare by integrating modern medical practices with traditional Ayurvedic wisdom. We believe in holistic approach to healing, personalized treatment plans, and preventive healthcare."
+                tag="p"
+                className="text-gray-600 mb-4"
+                multiline={true}
+              />
             </div>
             <div className="relative h-96">
-              <div className="absolute inset-0 bg-[url('/images/about-mission.jpg')] bg-cover bg-center rounded-lg shadow-lg" />
+              <EditableImage
+                page="about"
+                section="mission"
+                field="image"
+                defaultSrc="/images/about-mission.jpg"
+                alt="Our Mission"
+                className="absolute inset-0 bg-cover bg-center rounded-lg shadow-lg w-full h-full"
+              />
             </div>
           </div>
         </div>
@@ -119,7 +108,14 @@ const About = () => {
       {/* Our Doctors */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Doctors</h2>
+          <EditableText
+            page="about"
+            section="doctors"
+            field="title"
+            defaultValue="Our Doctors"
+            tag="h2"
+            className="text-3xl font-bold text-center mb-12"
+          />
           <div className="grid md:grid-cols-2 gap-8">
             {doctors.map((doctor, index) => (
               <DoctorCard
@@ -138,73 +134,83 @@ const About = () => {
       {/* Why Choose Us */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Why Choose Our Clinic?
-          </h2>
+          <EditableText
+            page="about"
+            section="why-choose"
+            field="title"
+            defaultValue="Why Choose Our Clinic?"
+            tag="h2"
+            className="text-3xl font-bold text-center mb-12"
+          />
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-6 bg-primary-100 rounded-full flex items-center justify-center">
-                <svg
-                  className="w-8 h-8 text-primary-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  />
+                <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Integrated Approach</h3>
-              <p className="text-gray-600">
-                Best of both modern medicine and traditional Ayurveda for
-                comprehensive healing.
-              </p>
+              <EditableText
+                page="about"
+                section="why-choose"
+                field="feature1-title"
+                defaultValue="Integrated Approach"
+                tag="h3"
+                className="text-xl font-semibold mb-4"
+              />
+              <EditableText
+                page="about"
+                section="why-choose"
+                field="feature1-description"
+                defaultValue="Best of both modern medicine and traditional Ayurveda for comprehensive healing."
+                tag="p"
+                className="text-gray-600"
+              />
             </div>
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-6 bg-primary-100 rounded-full flex items-center justify-center">
-                <svg
-                  className="w-8 h-8 text-primary-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                  />
+                <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Personalized Care</h3>
-              <p className="text-gray-600">
-                Tailored treatment plans based on individual needs and conditions.
-              </p>
+              <EditableText
+                page="about"
+                section="why-choose"
+                field="feature2-title"
+                defaultValue="Personalized Care"
+                tag="h3"
+                className="text-xl font-semibold mb-4"
+              />
+              <EditableText
+                page="about"
+                section="why-choose"
+                field="feature2-description"
+                defaultValue="Tailored treatment plans based on individual needs and conditions."
+                tag="p"
+                className="text-gray-600"
+              />
             </div>
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-6 bg-primary-100 rounded-full flex items-center justify-center">
-                <svg
-                  className="w-8 h-8 text-primary-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                  />
+                <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Modern Facility</h3>
-              <p className="text-gray-600">
-                State-of-the-art infrastructure with traditional healing spaces.
-              </p>
+              <EditableText
+                page="about"
+                section="why-choose"
+                field="feature3-title"
+                defaultValue="Modern Facility"
+                tag="h3"
+                className="text-xl font-semibold mb-4"
+              />
+              <EditableText
+                page="about"
+                section="why-choose"
+                field="feature3-description"
+                defaultValue="State-of-the-art infrastructure with traditional healing spaces."
+                tag="p"
+                className="text-gray-600"
+              />
             </div>
           </div>
         </div>
@@ -213,13 +219,22 @@ const About = () => {
       {/* CTA */}
       <section className="py-16 bg-primary-50">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Experience Our Holistic Approach to Health
-          </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Book an appointment today and take the first step towards complete
-            wellness.
-          </p>
+          <EditableText
+            page="about"
+            section="cta"
+            field="title"
+            defaultValue="Experience Our Holistic Approach to Health"
+            tag="h2"
+            className="text-3xl font-bold mb-6"
+          />
+          <EditableText
+            page="about"
+            section="cta"
+            field="description"
+            defaultValue="Book an appointment today and take the first step towards complete wellness."
+            tag="p"
+            className="text-lg text-gray-600 mb-8"
+          />
           <Link to="/appointment" className="btn">
             Schedule a Consultation
           </Link>

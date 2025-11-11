@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import EditableText from '../components/EditableText';
 
 const contactInfo = {
   address: "No.6 Saraswati Sadan CHS, Sec: 23, Plot- 211, Juinagar, Navi Mumbai",
@@ -21,10 +22,22 @@ const Contact = () => {
 
       <section className="pt-24 pb-16 bg-green-50">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-green-800 mb-6">Contact Us</h2>
-          <p className="text-gray-700 mb-8">
-            We're here to assist you with your health journey. Reach us anytime during working hours.
-          </p>
+          <EditableText
+            page="contact"
+            section="hero"
+            field="title"
+            defaultValue="Contact Us"
+            tag="h2"
+            className="text-4xl font-bold text-green-800 mb-6"
+          />
+          <EditableText
+            page="contact"
+            section="hero"
+            field="description"
+            defaultValue="We're here to assist you with your health journey. Reach us anytime during working hours."
+            tag="p"
+            className="text-gray-700 mb-8"
+          />
 
           <div className="bg-white p-8 rounded-2xl shadow-md">
             <p className="mb-4 text-lg text-gray-800">

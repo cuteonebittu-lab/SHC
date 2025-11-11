@@ -33,7 +33,8 @@ const services = {
     { icon: '🔥', title: 'Digestive Disorders (Ajeerna, Acidity, IBS)', description: 'Herbal detox, gut balancing, and dietary correction.' },
     { icon: '💧', title: 'Renal & Urinary Disorders (Mutravaha Srotas)', description: 'Herbal diuretics, detoxification, and kidney care.' },
     { icon: '🌸', title: 'Skin & Hair Care (Psoriasis, Dandruff, Hair Fall)', description: 'Herbal packs, medicated oils, and internal cleansing.' },
-    { icon: '🌞', title: 'Rejuvenation & Rasayana Therapy', description: 'Vitality, anti-aging, and immunity-building treatments.' }
+    { icon: '🌞', title: 'Rejuvenation & Rasayana Therapy', description: 'Vitality, anti-aging, and immunity-building treatments.' },
+    { icon: '🙌', title: 'Marma Therapy', description: 'Energy-point massage for deep relaxation and healing.' }
   ]
 };
 

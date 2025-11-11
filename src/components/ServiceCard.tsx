@@ -1,17 +1,45 @@
 import React from 'react';
+import EditableText from './EditableText';
 
 interface ServiceCardProps {
   icon: string;
   title: string;
   description: string;
+  page?: string;
+  section?: string;
+  field?: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ 
+  icon, 
+  title, 
+  description, 
+  page = 'home', 
+  section = 'services', 
+  field = 'service' 
+}) => {
+  const serviceId = title.toLowerCase().replace(/\s+/g, '-');
+  
   return (
     <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition">
       <i className={`fas ${icon} text-green-700 text-4xl mb-4`}></i>
-      <h4 className="text-xl font-semibold mb-2">{title}</h4>
-      <p className="text-gray-600">{description}</p>
+      <EditableText
+        page={page}
+        section={section}
+        field={`${serviceId}-title`}
+        defaultValue={title}
+        tag="h4"
+        className="text-xl font-semibold mb-2"
+      />
+      <EditableText
+        page={page}
+        section={section}
+        field={`${serviceId}-description`}
+        defaultValue={description}
+        tag="p"
+        className="text-gray-600"
+        multiline={true}
+      />
     </div>
   );
 };

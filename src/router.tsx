@@ -1,4 +1,6 @@
+import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import { ContentProvider } from './contexts/ContentContext';
 import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -8,10 +10,16 @@ import Appointment from './pages/Appointment';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 
+const ContentLayout = () => (
+  <ContentProvider>
+    <MainLayout />
+  </ContentProvider>
+);
+
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainLayout />,
+    element: <ContentLayout />,
     children: [
       {
         index: true,

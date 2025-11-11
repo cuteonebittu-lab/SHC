@@ -1,6 +1,7 @@
 import React from 'react';
 import ServiceCard from '../components/ServiceCard';
 import WhyChooseUs from '../components/WhyChooseUs';
+import EditableText from '../components/EditableText';
 
 const Home: React.FC = () => {
   return (
@@ -8,8 +9,22 @@ const Home: React.FC = () => {
       {/* HERO SECTION */}
       <section className="pt-32 pb-20 bg-green-50 text-center">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-green-800 mb-4">Holistic Healing through <br /> Modern Medicine & Ayurveda</h2>
-          <p className="text-lg text-gray-700 mb-6">Experience the best of both worlds — <b>scientific precision</b> with <b>natural wellness</b>.</p>
+          <EditableText
+            page="home"
+            section="hero"
+            field="title"
+            defaultValue="Holistic Healing through Modern Medicine & Ayurveda"
+            tag="h2"
+            className="text-4xl md:text-5xl font-bold text-green-800 mb-4"
+          />
+          <EditableText
+            page="home"
+            section="hero"
+            field="description"
+            defaultValue="Experience the best of both worlds — scientific precision with natural wellness."
+            tag="p"
+            className="text-lg text-gray-700 mb-6"
+          />
           <a href="appointment.html" className="inline-block bg-green-700 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-800 transition">Book Appointment</a>
         </div>
       </section>
@@ -23,15 +38,33 @@ const Home: React.FC = () => {
           <div className="md:w-1/2 md:pl-10 mt-8 md:mt-0">
             <div className="flex items-center mb-4">
               <img src="/logo.svg" alt="Saanvi Healthcare Centre Logo" className="h-12 mr-4" />
-              <h3 className="text-3xl font-bold text-green-800">Welcome to Saanvi Healthcare Centre</h3>
+              <EditableText
+                page="home"
+                section="about"
+                field="title"
+                defaultValue="Welcome to Saanvi Healthcare Centre"
+                tag="h3"
+                className="text-3xl font-bold text-green-800"
+              />
             </div>
-            <p className="text-gray-700 mb-4">
-              Led by <b>Dr. Dhirendra Yadav (MD, Internal Medicine)</b> and <b>Dr. Sunitha Yadav (MD, Ayurveda Medicine)</b>,  
-              our centre brings together the strengths of <b>modern diagnostics</b> and <b>Ayurvedic wisdom</b> to offer holistic, patient-focused care.
-            </p>
-            <p className="text-gray-700 mb-6">
-              Our mission is to heal both body and mind — through compassion, experience, and a blend of science and tradition.
-            </p>
+            <EditableText
+              page="home"
+              section="about"
+              field="description1"
+              defaultValue="Led by Dr. Dhirendra Yadav (MD, Internal Medicine) and Dr. Sunitha Yadav (MD, Ayurveda Medicine), our centre brings together the strengths of modern diagnostics and Ayurvedic wisdom to offer holistic, patient-focused care."
+              tag="p"
+              className="text-gray-700 mb-4"
+              multiline={true}
+            />
+            <EditableText
+              page="home"
+              section="about"
+              field="description2"
+              defaultValue="Our mission is to heal both body and mind — through compassion, experience, and a blend of science and tradition."
+              tag="p"
+              className="text-gray-700 mb-6"
+              multiline={true}
+            />
             <a href="about.html" className="bg-green-700 text-white px-6 py-2 rounded-full font-medium hover:bg-green-800 transition">Know More</a>
           </div>
         </div>
@@ -40,7 +73,14 @@ const Home: React.FC = () => {
       {/* SERVICES SECTION */}
       <section className="py-20 bg-green-50">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-green-800 mb-10">Our Key Services</h2>
+          <EditableText
+            page="home"
+            section="services"
+            field="title"
+            defaultValue="Our Key Services"
+            tag="h2"
+            className="text-4xl font-bold text-green-800 mb-10"
+          />
 
           <div className="grid md:grid-cols-3 gap-8">
             <ServiceCard
@@ -60,7 +100,7 @@ const Home: React.FC = () => {
             />
             <ServiceCard
               icon="fa-female"
-              title="Women’s Health"
+              title="Women's Health"
               description="Comprehensive solutions for PCOD, thyroid, hormonal balance, and wellness."
             />
             <ServiceCard
@@ -77,6 +117,11 @@ const Home: React.FC = () => {
               icon="fa-weight"
               title="Weight Management"
               description="Effective strategies for sustainable weight loss and maintenance."
+            />
+            <ServiceCard
+              icon="fa-hands-helping"
+              title="Marma Therapy"
+              description="Energy-point massage for deep relaxation and healing."
             />
           </div>
         </div>

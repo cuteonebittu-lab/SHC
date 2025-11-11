@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import EditableText from '../components/EditableText';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -33,7 +34,8 @@ const services = {
     { icon: '🔥', title: 'Digestive Disorders (Ajeerna, Acidity, IBS)', description: 'Herbal detox, gut balancing, and dietary correction.' },
     { icon: '💧', title: 'Renal & Urinary Disorders (Mutravaha Srotas)', description: 'Herbal diuretics, detoxification, and kidney care.' },
     { icon: '🌸', title: 'Skin & Hair Care (Psoriasis, Dandruff, Hair Fall)', description: 'Herbal packs, medicated oils, and internal cleansing.' },
-    { icon: '🌞', title: 'Rejuvenation & Rasayana Therapy', description: 'Vitality, anti-aging, and immunity-building treatments.' }
+    { icon: '🌞', title: 'Rejuvenation & Rasayana Therapy', description: 'Vitality, anti-aging, and immunity-building treatments.' },
+    { icon: '🙌', title: 'Marma Therapy', description: 'Energy-point massage for deep relaxation and healing.' }
   ]
 };
 
@@ -55,10 +57,22 @@ const Services = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="max-w-4xl mx-auto px-6">
-          <h1 className="text-4xl font-bold text-green-800 mb-4">Our Medical & Ayurvedic Services</h1>
-          <p className="text-gray-700 text-lg">
-            Integrating modern diagnostics and Ayurveda's timeless wisdom to deliver holistic healing at our centre.
-          </p>
+          <EditableText
+            page="services"
+            section="hero"
+            field="title"
+            defaultValue="Our Medical & Ayurvedic Services"
+            tag="h1"
+            className="text-4xl font-bold text-green-800 mb-4"
+          />
+          <EditableText
+            page="services"
+            section="hero"
+            field="description"
+            defaultValue="Integrating modern diagnostics and Ayurveda's timeless wisdom to deliver holistic healing at our centre."
+            tag="p"
+            className="text-gray-700 text-lg"
+          />
         </div>
       </motion.section>
 
@@ -70,8 +84,22 @@ const Services = () => {
         variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
       >
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-green-800 text-center mb-4">🩺 Dr. Dhirendra (MBBS, MD)</h2>
-          <p className="text-center text-gray-600 mb-10">Specialist in Internal Medicine & Chronic Disease Management</p>
+          <EditableText
+            page="services"
+            section="dr-dhirendra"
+            field="title"
+            defaultValue="🩺 Dr. Dhirendra (MBBS, MD)"
+            tag="h2"
+            className="text-3xl font-bold text-green-800 text-center mb-4"
+          />
+          <EditableText
+            page="services"
+            section="dr-dhirendra"
+            field="specialty"
+            defaultValue="Specialist in Internal Medicine & Chronic Disease Management"
+            tag="p"
+            className="text-center text-gray-600 mb-10"
+          />
           <div className="grid md:grid-cols-3 gap-10">
             {services.drDhirendra.map((service, index) => (
               <motion.div
@@ -96,8 +124,22 @@ const Services = () => {
         variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
       >
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-green-800 text-center mb-4">🌿 Dr. Sunitha (MD Ayurveda)</h2>
-          <p className="text-center text-gray-600 mb-10">Specialist in Ayurvedic Medicine, Panchakarma & Holistic Healing</p>
+          <EditableText
+            page="services"
+            section="dr-sunitha"
+            field="title"
+            defaultValue="🌿 Dr. Sunitha (MD Ayurveda)"
+            tag="h2"
+            className="text-3xl font-bold text-green-800 text-center mb-4"
+          />
+          <EditableText
+            page="services"
+            section="dr-sunitha"
+            field="specialty"
+            defaultValue="Specialist in Ayurvedic Medicine, Panchakarma & Holistic Healing"
+            tag="p"
+            className="text-center text-gray-600 mb-10"
+          />
           <div className="grid md:grid-cols-3 gap-10">
             {services.drSunitha.map((service, index) => (
               <motion.div
