@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import EditableText from '../components/EditableText';
@@ -41,7 +41,7 @@ const services = {
 
 const Services = () => {
   return (
-    <>
+    <div>
       <Helmet>
         <title>Our Services | Saanvi Healthcare Centre</title>
         <meta 
@@ -155,7 +155,7 @@ const Services = () => {
           </div>
         </div>
       </motion.section>
-    </>
+    </div>
   );
 };
 

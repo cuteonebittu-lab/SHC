@@ -6,7 +6,7 @@ import AdminPanel from '../components/AdminPanel';
 
 const MainLayout = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-lavender-200">
       <Navbar />
       <main className="flex-grow">
         <Outlet />

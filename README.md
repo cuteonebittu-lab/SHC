@@ -63,7 +63,7 @@ export default defineConfig([
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ['./tsconfig.node.json', ['./tsconfig.app.json'],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
@@ -71,3 +71,32 @@ export default defineConfig([
   },
 ])
 ```
+
+## Google Maps Integration
+
+The contact page includes an interactive Google Map showing the clinic location. To enable the map:
+
+1. **Get a Google Maps API Key:**
+   - Go to [Google Cloud Console](https://console.cloud.google.com/google/maps-apis/)
+   - Create a new project or select an existing one
+   - Enable the following APIs:
+     - Maps JavaScript API
+     - Places API
+   - Create credentials (API key)
+   - Restrict the API key to your domain for security
+
+2. **Configure the API Key:**
+   - Copy the `.env` file and rename it to `.env.local`
+   - Replace `your_google_maps_api_key_here` with your actual API key:
+   ```
+   VITE_GOOGLE_MAPS_API_KEY=your_actual_api_key_here
+   ```
+
+3. **Features:**
+   - Interactive map showing clinic location in Juinagar, Navi Mumbai
+   - Custom marker with clinic branding
+   - Styled map with clean, professional appearance
+   - "Open in Google Maps" link for directions
+   - Responsive design that works on all devices
+
+The map will automatically center on the clinic location and display a custom marker.

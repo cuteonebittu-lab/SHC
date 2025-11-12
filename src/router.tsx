@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import { ContentProvider } from './contexts/ContentContext';
 import MainLayout from './layouts/MainLayout';
@@ -9,17 +9,17 @@ import Treatments from './pages/Treatments';
 import Appointment from './pages/Appointment';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
-
-const ContentLayout = () => (
-  <ContentProvider>
-    <MainLayout />
-  </ContentProvider>
-);
+import ErrorPage from './pages/ErrorPage'; // Import the new ErrorPage component
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <ContentLayout />,
+    element: (
+      <ContentProvider>
+        <MainLayout />
+      </ContentProvider>
+    ),
+    errorElement: <ErrorPage />, // Add the ErrorPage here
     children: [
       {
         index: true,

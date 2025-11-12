@@ -1,69 +1,20 @@
-eimport { z } from 'zod';
-import { useForm, type SubmitHandler } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from './ui/Button';
 import Input from './ui/Input';
 import Select from './ui/Select';
 import Textarea from './ui/Textarea';
 
-const appointmentSchema = z.object({
-  name: z
-    .string()
-    .min(2, 'Name must be at least 2 characters')
-    .max(50, 'Name must be less than 50 characters')
-    .regex(/^[a-zA-Z\s'-]+$/, 'Name can only contain letters, spaces, hyphens, and apostrophes'),
-  email: z
-    .string()
-    .email('Invalid email address')
-    .toLowerCase()
-    .refine(email => email.endsWith('.com') || email.endsWith('.org') || email.endsWith('.net'), {
-      message: 'Email must be from a common domain (.com, .org, .net)',
-    }),
-  phone: z
-    .string()
-    .regex(/^\+?[1-9]\d{9,14}$/, 'Invalid phone number')
-    .refine(phone => {
-      const digits = phone.replace(/\D/g, '');
-      return digits.length >= 10 && digits.length <= 15;
-    }, 'Phone number must be between 10 and 15 digits'),
-  date: z
-    .string()
-    .refine(date => {
-      const selectedDate = new Date(date);
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      return selectedDate >= today;
-    }, 'Date must be today or in the future')
-    .refine(date => {
-      const selectedDate = new Date(date);
-      const maxDate = new Date();
-      maxDate.setMonth(maxDate.getMonth() + 3);
-      return selectedDate <= maxDate;
-    }, 'Cannot book appointments more than 3 months in advance'),
-  time: z
-    .string()
-    .min(1, 'Please select a time')
-    .refine(time => {
-      const [hours] = time.split(':').map(Number);
-      return hours >= 9 && hours <= 17;
-    }, 'Appointments are only available between 9 AM and 5 PM'),
-  service: z
-    .string()
-    .min(1, 'Please select a service'),
-  doctor: z
-    .string()
-    .min(1, 'Please select a doctor'),
-  message: z
-    .string()
-    .max(500, 'Message must be less than 500 characters')
-    .optional()
-    .transform(str => (str === '' ? undefined : str)), // Ensure empty string is transformed to undefined
-});
-
-type AppointmentFormData = z.infer<typeof appointmentSchema> & {
-  message?: string; // Explicitly make message optional for React Hook Form
-};
+interface AppointmentFormData {
+  name: string;
+  email: string;
+  phone: string;
+  date: string;
+  time: string;
+  service: string;
+  doctor: string;
+  message?: string;
+}
 
 const AppointmentForm = () => {
   const {
@@ -71,19 +22,7 @@ const AppointmentForm = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<AppointmentFormData>({
-    resolver: zodResolver(appointmentSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      phone: '',
-      date: '',
-      time: '',
-      service: '',
-      doctor: '',
-      message: undefined, // Explicitly set as undefined for optional field
-    },
-  });
+  } = useForm<AppointmentFormData>();
 
   const services = [
     { value: 'general-medicine', label: 'General Medicine' },
@@ -106,16 +45,11 @@ const AppointmentForm = () => {
     { value: '16:00', label: '04:00 PM' },
   ];
 
-  const onSubmit: SubmitHandler<AppointmentFormData> = async (data) => {
+  const onSubmit = async (data: AppointmentFormData) => {
     try {
-      // Manually set message to undefined if it's an empty string before API call
-      const submissionData = {
-        ...data,
-        message: data.message === '' ? undefined : data.message,
-      };
       // Add your API call here
       await new Promise(resolve => setTimeout(resolve, 1500)); // Simulated API call
-      console.log('Form submitted:', submissionData);
+      console.log('Form submitted:', data);
       reset();
       // Show success message
     } catch (error) {
@@ -132,7 +66,7 @@ const AppointmentForm = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Input
           label="Full Name"
-          {...register('name')}
+          {...register('name', { required: 'Name is required' })}
           error={errors.name?.message}
           required
         />
@@ -140,7 +74,7 @@ const AppointmentForm = () => {
         <Input
           label="Email"
           type="email"
-          {...register('email')}
+          {...register('email', { required: 'Email is required' })}
           error={errors.email?.message}
           required
         />
@@ -148,7 +82,7 @@ const AppointmentForm = () => {
         <Input
           label="Phone"
           type="tel"
-          {...register('phone')}
+          {...register('phone', { required: 'Phone is required' })}
           error={errors.phone?.message}
           helpText="Include country code (e.g., +1 for USA)"
           required
@@ -157,7 +91,7 @@ const AppointmentForm = () => {
         <Input
           label="Preferred Date"
           type="date"
-          {...register('date')}
+          {...register('date', { required: 'Date is required' })}
           error={errors.date?.message}
           min={new Date().toISOString().split('T')[0]}
           required
@@ -166,7 +100,7 @@ const AppointmentForm = () => {
         <Select
           label="Preferred Time"
           options={timeSlots}
-          {...register('time')}
+          {...register('time', { required: 'Time is required' })}
           error={errors.time?.message}
           required
         />
@@ -174,7 +108,7 @@ const AppointmentForm = () => {
         <Select
           label="Service"
           options={services}
-          {...register('service')}
+          {...register('service', { required: 'Service is required' })}
           error={errors.service?.message}
           required
         />
@@ -183,7 +117,7 @@ const AppointmentForm = () => {
           <Select
             label="Preferred Doctor"
             options={doctors}
-            {...register('doctor')}
+            {...register('doctor', { required: 'Doctor is required' })}
             error={errors.doctor?.message}
             required
           />
@@ -244,3 +178,5 @@ const AppointmentForm = () => {
     </motion.div>
   );
 };
+
+export default AppointmentForm;

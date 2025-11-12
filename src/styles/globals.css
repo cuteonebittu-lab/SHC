@@ -161,6 +161,15 @@
     background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 50%, #f5d0fe 100%);
   }
 
+  /* Lavender backgrounds */
+  .bg-lavender-50 {
+    background-color: #f8f7ff;
+  }
+
+  .bg-lavender-200 {
+    background-color: #e2d9ff;
+  }
+
   /* Floating animation */
   .float-animation {
     animation: float 6s ease-in-out infinite;

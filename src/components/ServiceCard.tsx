@@ -16,7 +16,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   description, 
   page = 'home', 
   section = 'services', 
-  field = 'service' 
+  // field = 'service'
 }) => {
   const serviceId = title.toLowerCase().replace(/\s+/g, '-');
   

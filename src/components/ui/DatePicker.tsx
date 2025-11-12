@@ -35,19 +35,19 @@ const DatePicker = ({
     onChange(date);
   };
 
-  const generateDateClass = (date: Date) => {
-    const isSelected = value && formatDate(date) === formatDate(value);
-    const isDisabled = (minDate && date < minDate) || (maxDate && date > maxDate);
-    const isToday = formatDate(date) === formatDate(new Date());
+  // const generateDateClass = (date: Date) => {
+  //   const isSelected = value && formatDate(date) === formatDate(value);
+  //   const isDisabled = (minDate && date < minDate) || (maxDate && date > maxDate);
+  //   const isToday = formatDate(date) === formatDate(new Date());
 
-    return `
-      w-10 h-10 rounded-full flex items-center justify-center text-sm
-      ${isSelected ? 'bg-emerald-600 text-white' : 'hover:bg-emerald-50'}
-      ${isDisabled ? 'text-gray-300 cursor-not-allowed' : 'cursor-pointer'}
-      ${isToday ? 'border border-emerald-600' : ''}
-      transition-colors duration-200
-    `;
-  };
+  //   return `
+  //     w-10 h-10 rounded-full flex items-center justify-center text-sm
+  //     ${isSelected ? 'bg-emerald-600 text-white' : 'hover:bg-emerald-50'}
+  //     ${isDisabled ? 'text-gray-300 cursor-not-allowed' : 'cursor-pointer'}
+  //     ${isToday ? 'border border-emerald-600' : ''}
+  //     transition-colors duration-200
+  //   `;
+  // };
 
   return (
     <div className="relative">

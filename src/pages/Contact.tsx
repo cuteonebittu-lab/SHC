@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import EditableText from '../components/EditableText';
+import GoogleMap from '../components/GoogleMap';
 
 const contactInfo = {
   address: "No.6 Saraswati Sadan CHS, Sec: 23, Plot- 211, Juinagar, Navi Mumbai",
@@ -59,6 +60,34 @@ const Contact = () => {
               rel="noopener noreferrer"
             >
               Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Google Map Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-green-800 mb-4">Find Our Location</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Visit us at our clinic in Juinagar, Navi Mumbai. We're conveniently located and easily accessible.
+            </p>
+          </div>
+          
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <GoogleMap className="w-full" />
+          </div>
+          
+          <div className="mt-8 text-center">
+            <a 
+              href="https://maps.google.com/?q=19.0443,73.0252"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800 transition-colors"
+            >
+              <span className="mr-2">📍</span>
+              Open in Google Maps
             </a>
           </div>
         </div>

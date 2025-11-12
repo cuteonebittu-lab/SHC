@@ -5,7 +5,7 @@ import EditableText from '../components/EditableText';
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-cream text-gray-800 font-sans">
+    <div className="text-gray-800 font-sans">
       {/* HERO SECTION */}
       <section className="pt-32 pb-20 bg-green-50 text-center">
         <div className="max-w-5xl mx-auto px-6">
@@ -84,44 +84,79 @@ const Home: React.FC = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <ServiceCard
-              icon="fa-user-md"
+              icon="fa-solid fa-user-md"
               title="General Medicine"
               description="Comprehensive care for diabetes, hypertension, thyroid, and lifestyle disorders."
             />
             <ServiceCard
-              icon="fa-leaf"
-              title="Ayurveda Consultation"
-              description="Authentic Ayurvedic treatments for holistic wellness and disease prevention."
+              icon="fa-solid fa-pancreas"
+              title="Diabetes and Complications"
+              description="Specialized management for diabetes, including prevention and treatment of complications."
             />
             <ServiceCard
-              icon="fa-heartbeat"
+              icon="fa-solid fa-heartbeat"
               title="Cardio & Lifestyle Care"
               description="Specialized management for heart, blood pressure, and metabolic conditions."
             />
             <ServiceCard
-              icon="fa-female"
+              icon="fa-solid fa-lungs"
+              title="Respiratory Illness"
+              description="Diagnosis and treatment for asthma, bronchitis, and other lung conditions."
+            />
+            <ServiceCard
+              icon="fa-solid fa-brain"
+              title="Nervous System Disorders"
+              description="Care for neurological conditions like migraines, neuropathy, and stroke recovery."
+            />
+            <ServiceCard
+              icon="fa-solid fa-medkit"
+              title="Liver Care"
+              description="Comprehensive management for liver diseases and promoting liver health."
+            />
+            <ServiceCard
+              icon="fa-solid fa-kidneys"
+              title="Renal Disorders"
+              description="Treatment and management of kidney diseases and urinary tract issues."
+            />
+            <ServiceCard
+              icon="fa-solid fa-venus-mars"
+              title="Sexual Health"
+              description="Confidential consultations and treatments for various sexual health concerns."
+            />
+            <ServiceCard
+              icon="fa-solid fa-leaf"
+              title="Ayurveda Consultation"
+              description="Authentic Ayurvedic treatments for holistic wellness and disease prevention."
+            />
+            <ServiceCard
+              icon="fa-solid fa-female"
               title="Women's Health"
               description="Comprehensive solutions for PCOD, thyroid, hormonal balance, and wellness."
             />
             <ServiceCard
-              icon="fa-hand-sparkles"
+              icon="fa-solid fa-hand-sparkles"
               title="Skin & Hair Care"
               description="Natural therapies for radiant skin, healthy hair, and inner vitality."
             />
             <ServiceCard
-              icon="fa-utensils"
+              icon="fa-solid fa-utensils"
               title="Diet and Nutrition"
               description="Personalized diet plans for a healthier lifestyle."
             />
             <ServiceCard
-              icon="fa-weight"
+              icon="fa-solid fa-weight"
               title="Weight Management"
               description="Effective strategies for sustainable weight loss and maintenance."
             />
             <ServiceCard
-              icon="fa-hands-helping"
+              icon="fa-solid fa-hands-helping"
               title="Marma Therapy"
               description="Energy-point massage for deep relaxation and healing."
+            />
+            <ServiceCard
+              icon="fa-solid fa-bone"
+              title="Spine and Joint Disorders"
+              description="Specialized treatments for back pain, arthritis, and other musculoskeletal conditions."
             />
           </div>
         </div>
