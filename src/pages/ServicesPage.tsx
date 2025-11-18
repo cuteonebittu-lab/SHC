@@ -23,8 +23,8 @@ const services = {
     { icon: '💊', title: 'Chronic Disease Management', description: 'Long-term care with integrated follow-up and medical supervision.' }
   ],
   drSunitha: [
-    { icon: '🌿', title: 'Panchakarma Detox Therapy', description: 'Complete body cleansing and rejuvenation treatments.' },
-    { icon: '💆', title: 'Stress, Anxiety & Insomnia (Manasika Rogas)', description: 'Shirodhara, Nasya, Abhyanga, herbal support.' },
+    { icon: '🌿', title: 'Detoxification Therapy', description: 'Complete body cleansing and rejuvenation treatments.' },
+    { icon: '💆', title: 'Stress, Anxiety & Insomnia (Manasika Rogas)', description: 'Oil Drip Therapy, Nasal Administration, Oil Massage, herbal support.' },
     { icon: '🍎', title: 'Obesity & Weight Management', description: 'Herbal fat-burners, metabolic correction, yoga, and diet.' },
     { icon: '💗', title: 'Cardiac Health (Hridroga)', description: 'Heart-strengthening herbs and Rasayana therapy.' },
     { icon: '🤰', title: 'Women’s Health (PCOD, Menstrual Disorders)', description: 'Hormonal balancing, fertility care, and prenatal therapies.' },
@@ -98,7 +98,7 @@ const ServicesPage = () => {
       >
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-green-800 text-center mb-4">🌿 Dr. Sunitha (MD Ayurveda)</h2>
-          <p className="text-center text-gray-600 mb-10">Specialist in Ayurvedic Medicine, Panchakarma & Holistic Healing</p>
+          <p className="text-center text-gray-600 mb-10">Specialist in Ayurvedic Medicine & Holistic Healing</p>
           <div className="grid md:grid-cols-3 gap-10">
             {services.drSunitha.map((service, index) => (
               <motion.div

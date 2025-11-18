@@ -33,11 +33,11 @@ const Home: React.FC = () => {
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6 md:flex items-center">
           <div className="md:w-1/2">
-            <img src="/assets/images/clinic-hero.jpg" alt="Saanvi Healthcare Centre Logo" className="rounded-2xl shadow-lg w-full object-cover h-96" />
+            <img src="/assets/images/clinic-hero.jpg" alt="Clinic Hero" className="rounded-2xl shadow-lg w-full object-cover h-96" />
           </div>
           <div className="md:w-1/2 md:pl-10 mt-8 md:mt-0">
             <div className="flex items-center mb-4">
-              <img src="/logo.svg" alt="Saanvi Healthcare Centre Logo" className="h-12 mr-4" />
+              <img src="/logo.svg" alt="Holistic Healthcare Logo" className="h-12 mr-4" />
               <EditableText
                 page="home"
                 section="about"

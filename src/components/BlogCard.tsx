@@ -1,5 +1,12 @@
 import React from 'react';
-d  title: string;
+import { Link } from 'react-router-dom';
+import { useContent } from '../contexts/ContentContext';
+import EditableImage from '../components/EditableImage';
+import EditableText from '../components/EditableText';
+
+interface BlogPostProps {
+  id: string;
+  title: string;
   excerpt: string;
   image: string;
   category: string;

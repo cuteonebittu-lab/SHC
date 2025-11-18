@@ -6,21 +6,21 @@ import EditableImage from '../components/EditableImage';
 
 const doctors = [
   {
-    name: 'Dr. ',
-    title: 'MBBS, MD (General Medicine)',
+    name: 'Dhirendra Yadav',
+    title: 'MBBS, MD General Medicine, CCDM (Diabetes)',
     specialty: 'General Medicine',
     experience: '15+ years',
-    image: '/images/doctors/doctor1.jpg',
-    description: 'Dr.  is a highly experienced general physician with expertise in managing chronic diseases and preventive healthcare.',
+    image: '/images/doctors/doctor1.jpg', // Assuming doctor1.jpg is a male doctor
+    description: 'Dhirendra Yadav is a highly experienced general physician with expertise in managing chronic diseases and preventive healthcare.',
     timings: '7:00 pm to 9:30 pm',
   },
   {
-    name: 'Dr. ',
-    title: 'BAMS, MD (Ayurveda Physician)',
+    name: 'Sunitha Yadav',
+    title: 'BAMS, MD Ayurveda Medicine, PGD in Clinical Nutrition and Dietetics',
     specialty: 'Ayurveda',
     experience: '12+ years',
-    image: '/images/doctors/doctor2.jpg',
-    description: 'Dr. specializes in traditional Ayurvedic treatments and has helped numerous patients achieve holistic wellness.',
+    image: '/images/doctors/doctor2.jpg', // Assuming doctor2.jpg is a female doctor
+    description: 'Sunitha Yadav specializes in traditional Ayurvedic treatments and has helped numerous patients achieve holistic wellness.',
     timings: '10:00 am to 1:30 pm',
   },
 ];
@@ -43,7 +43,7 @@ const About = () => {
                 section="hero"
                 field="logo"
                 defaultSrc="/assets/images/logo.svg"
-                alt="Saanvi Healthcare Centre Logo"
+                alt="Saanvi Healthcare Logo"
                 className="h-16 mr-4"
               />
               <EditableText
@@ -69,17 +69,17 @@ const About = () => {
       </section>
 
       {/* Our Mission */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="order-2 md:order-1">
               <EditableText
                 page="about"
                 section="mission"
                 field="title"
                 defaultValue="Our Mission"
                 tag="h2"
-                className="text-3xl font-bold mb-6"
+                className="text-4xl font-extrabold text-gray-900 mb-6"
               />
               <EditableText
                 page="about"
@@ -87,18 +87,18 @@ const About = () => {
                 field="description"
                 defaultValue="Our mission is to provide comprehensive healthcare by integrating modern medical practices with traditional Ayurvedic wisdom. We believe in holistic approach to healing, personalized treatment plans, and preventive healthcare."
                 tag="p"
-                className="text-gray-600 mb-4"
+                className="text-lg text-gray-700 leading-relaxed mb-4"
                 multiline={true}
               />
             </div>
-            <div className="relative h-96">
+            <div className="relative h-80 md:h-auto md:aspect-w-16 md:aspect-h-9 order-1 md:order-2">
               <EditableImage
                 page="about"
                 section="mission"
                 field="image"
                 defaultSrc="/images/about-mission.jpg"
                 alt="Our Mission"
-                className="absolute inset-0 bg-cover bg-center rounded-lg shadow-lg w-full h-full"
+                className="absolute inset-0 w-full h-full object-cover rounded-xl shadow-xl"
               />
             </div>
           </div>
@@ -106,24 +106,35 @@ const About = () => {
       </section>
 
       {/* Our Doctors */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 bg-emerald-50">
         <div className="container mx-auto px-6">
-          <EditableText
-            page="about"
-            section="doctors"
-            field="title"
-            defaultValue="Our Doctors"
-            tag="h2"
-            className="text-3xl font-bold text-center mb-12"
-          />
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="text-center mb-12">
+            <EditableText
+              page="about"
+              section="doctors"
+              field="title"
+              defaultValue="Meet Our Dedicated Doctors"
+              tag="h2"
+              className="text-4xl font-extrabold text-gray-900 mb-4"
+            />
+            <EditableText
+              page="about"
+              section="doctors"
+              field="description"
+              defaultValue="Our team of experienced professionals is committed to providing you with the best integrated healthcare. Get to know the experts who will guide you on your journey to wellness."
+              tag="p"
+              className="text-lg text-gray-700 max-w-3xl mx-auto"
+              multiline={true}
+            />
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
             {doctors.map((doctor, index) => (
               <DoctorCard
                 key={index}
                 name={doctor.name}
                 specialization={doctor.specialty}
                 image={doctor.image}
-                qualifications={[doctor.title, doctor.experience]}
+                qualifications={[doctor.title]}
                 availability={doctor.timings}
               />
             ))}
