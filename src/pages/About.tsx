@@ -4,6 +4,8 @@ import DoctorCard from '../components/DoctorCard';
 import EditableText from '../components/EditableText';
 import EditableImage from '../components/EditableImage';
 
+// Use DoctorCard component directly; no 'any' cast needed
+
 const doctors = [
   {
     name: 'Dhirendra Yadav',
@@ -42,7 +44,7 @@ const About = () => {
                 page="about"
                 section="hero"
                 field="logo"
-                defaultSrc="/assets/images/logo.svg"
+                defaultSrc="/assets/images/shc_logo_exact.svg"
                 alt="Saanvi Healthcare Logo"
                 className="h-16 mr-4"
               />
@@ -91,15 +93,8 @@ const About = () => {
                 multiline={true}
               />
             </div>
-            <div className="relative h-80 md:h-auto md:aspect-w-16 md:aspect-h-9 order-1 md:order-2">
-              <EditableImage
-                page="about"
-                section="mission"
-                field="image"
-                defaultSrc="/images/about-mission.jpg"
-                alt="Our Mission"
-                className="absolute inset-0 w-full h-full object-cover rounded-xl shadow-xl"
-              />
+            <div className="relative h-80 md:h-auto md:aspect-w-16 md:aspect-h-9 order-1 md:order-2 flex items-center justify-center">
+              <img src="/assets/images/shc_logo_exact.svg" alt="Saanvi Healthcare Logo" className="w-56 h-56 object-contain rounded-xl shadow-xl" />
             </div>
           </div>
         </div>
@@ -127,13 +122,14 @@ const About = () => {
               multiline={true}
             />
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
+
+          {/* Doctors grid: show side-by-side on md+ screens */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {doctors.map((doctor, index) => (
               <DoctorCard
                 key={index}
                 name={doctor.name}
                 specialization={doctor.specialty}
-                image={doctor.image}
                 qualifications={[doctor.title]}
                 availability={doctor.timings}
               />

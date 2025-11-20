@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 
@@ -14,7 +15,6 @@ export interface ContentItem {
 interface ContentContextType {
   content: Record<string, ContentItem>;
   isEditing: boolean;
-  setIsEditing: (editing: boolean) => void;
   updateContent: (id: string, value: string) => void;
   getContent: (page: string, section: string, field: string, defaultValue: string) => string;
   getJsonContent: <T>(page: string, section: string, field: string, defaultValue: T) => T;
@@ -38,7 +38,9 @@ interface ContentProviderProps {
 
 export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) => {
   const [content, setContent] = useState<Record<string, ContentItem>>({});
-  const [isEditing, setIsEditing] = useState(false);
+  // Editing mode removed from UI — always false. Keeping in context for
+  // components that check `isEditing`, but there is no way to toggle it.
+  const [isEditing] = useState(false);
 
   // Load content from localStorage on mount
   useEffect(() => {
@@ -121,22 +123,22 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
   };
 
   const addBlogPost = (newPost: { id: string; title: string; excerpt: string; image: string; category: string; date: string; author: string; }) => {
-    const blogPosts = getJsonContent<{ [key: string]: any }>('blog', 'posts', 'list', {});
-    blogPosts[newPost.id] = newPost;
-    updateContent('blog-posts-list', JSON.stringify(blogPosts));
+    const blogPosts = getJsonContent<Record<string, unknown>>('blog', 'posts', 'list', {} as Record<string, unknown>);
+    const updated = { ...(blogPosts as Record<string, unknown>), [newPost.id]: newPost };
+    updateContent('blog-posts-list', JSON.stringify(updated));
   };
 
   const deleteBlogPost = (id: string) => {
-    const blogPosts = getJsonContent<{ [key: string]: any }>('blog', 'posts', 'list', {});
-    delete blogPosts[id];
-    updateContent('blog-posts-list', JSON.stringify(blogPosts));
+    const blogPosts = getJsonContent<Record<string, unknown>>('blog', 'posts', 'list', {} as Record<string, unknown>);
+    const copy = { ...(blogPosts as Record<string, unknown>) };
+    delete (copy as Record<string, unknown>)[id];
+    updateContent('blog-posts-list', JSON.stringify(copy));
   };
 
   return (
     <ContentContext.Provider value={{
       content,
       isEditing,
-      setIsEditing,
       updateContent,
       getContent,
       getJsonContent,

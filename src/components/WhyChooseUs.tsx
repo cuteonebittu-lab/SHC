@@ -5,7 +5,7 @@ const WhyChooseUs: React.FC = () => {
     <section className="py-20 bg-white text-center">
       <div className="max-w-5xl mx-auto px-6">
         <div className="flex items-center justify-center mb-10">
-          <img src="/assets/images/logo.svg" alt="Saanvi Healthcare Centre Logo" className="h-16 mr-4" />
+          <img src="/assets/images/shc_logo_exact.svg" alt="Saanvi Healthcare Centre Logo" className="h-16 mr-4" />
           <h2 className="text-4xl font-bold text-green-800">Why Choose Us?</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-8 text-left">
