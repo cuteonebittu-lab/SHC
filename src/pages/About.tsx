@@ -40,7 +40,6 @@ const About = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <div className="flex items-center justify-center mb-6">
-<<<<<<< HEAD
               <EditableImage
                 page="about"
                 section="hero"
@@ -49,8 +48,6 @@ const About = () => {
                 alt="Saanvi Healthcare Logo"
                 className="h-16 mr-4"
               />
-=======
->>>>>>> 43d6f935580b1dfe8369dacca4b7e18ee72a4cb7
               <EditableText
                 page="about"
                 section="hero"
