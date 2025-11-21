@@ -1,5 +1,5 @@
 // import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 import { ContentProvider } from './contexts/ContentContext';
 import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home';
@@ -11,7 +11,7 @@ import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import ErrorPage from './pages/ErrorPage'; // Import the new ErrorPage component
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     element: (

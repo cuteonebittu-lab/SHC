@@ -3,19 +3,17 @@ import { Link } from 'react-router-dom';
 interface DoctorProps {
   name: string;
   specialization: string;
-  image: string;
   qualifications: string[];
   availability: string;
 }
-
-const DoctorCard = ({ name, specialization, image, qualifications, availability }: DoctorProps) => {
+const DoctorCard = ({ name, specialization, qualifications, availability }: DoctorProps) => {
   return (
     <div className="reveal bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-64 overflow-hidden flex items-center justify-center bg-gray-50">
         <img 
-          src={`/assets/images/doctors/${image}`}
+          src={`/assets/images/shc_logo_exact.svg`}
           alt={`Dr. ${name}`}
-          className="w-full h-full object-cover"
+          className="w-40 h-40 object-contain"
         />
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
           <h3 className="text-xl font-bold text-white">Dr. {name}</h3>

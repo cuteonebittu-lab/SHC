@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Button from './ui/Button';
 import Input from './ui/Input';
 import Select from './ui/Select';
@@ -144,37 +144,7 @@ const AppointmentForm = () => {
         </div>
       </form>
 
-      <AnimatePresence>
-        {/* Success Message */}
-        {false && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 flex items-center justify-center bg-black/50"
-          >
-            <div className="bg-white p-6 rounded-2xl shadow-xl max-w-md mx-4">
-              <div className="text-center">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4"
-                >
-                  <svg className="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </motion.div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Appointment Scheduled!</h2>
-                <p className="text-gray-600 mb-6">We'll send you a confirmation email with all the details.</p>
-                <Button variant="outline" onClick={() => null}>
-                  Close
-                </Button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Success modal handled elsewhere — toggle rendering by state when used */}
     </motion.div>
   );
 };

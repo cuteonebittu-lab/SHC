@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useContent } from '../contexts/ContentContext';
 import EditableText from '../components/EditableText';
-import EditableImage from '../components/EditableImage';
 import BlogCard from '../components/BlogCard'; // Assuming BlogCard will be used for rendering
 
 interface BlogPost {
@@ -20,7 +19,7 @@ const defaultBlogPosts: { [key: string]: BlogPost } = {
     id: 'blog-1',
     title: 'Boost Your Immunity the Ayurvedic Way',
     excerpt: 'Discover simple Ayurvedic herbs and daily habits that can help you strengthen your immunity naturally and maintain vitality.',
-    image: '/assets/images/blog/blog1.jpg',
+  image: '/assets/images/shc_logo_exact.svg',
     category: 'Ayurveda',
     date: 'Oct 26, 2023',
     author: 'Dr. Sunitha Yadav'
@@ -29,7 +28,7 @@ const defaultBlogPosts: { [key: string]: BlogPost } = {
     id: 'blog-2',
     title: 'Managing Diabetes Holistically',
     excerpt: 'Understand how integrating modern medicine with Ayurvedic diet principles can help manage diabetes more effectively.',
-    image: '/assets/images/blog/blog2.jpg',
+  image: '/assets/images/shc_logo_exact.svg',
     category: 'Modern Medicine',
     date: 'Oct 20, 2023',
     author: 'Dr. Dhirendra Yadav'
@@ -38,7 +37,7 @@ const defaultBlogPosts: { [key: string]: BlogPost } = {
     id: 'blog-3',
     title: 'Stress Relief Through Ayurveda',
     excerpt: 'Learn how herbal therapies, breathing techniques, and lifestyle changes from Ayurveda can balance your mind and emotions.',
-    image: '/images/blog/stress.jpg',
+  image: '/assets/images/shc_logo_exact.svg',
     category: 'Ayurveda',
     date: 'Oct 15, 2023',
     author: 'Dr. Sunitha Yadav'
@@ -47,7 +46,7 @@ const defaultBlogPosts: { [key: string]: BlogPost } = {
     id: 'blog-4',
     title: 'Monsoon Health Tips',
     excerpt: "Stay safe this monsoon with expert preventive measures from both modern medicine and Ayurveda's seasonal regimen (Ritu Charya).",
-    image: '/images/blog/remedies.jpg',
+  image: '/assets/images/shc_logo_exact.svg',
     category: 'Seasonal Health',
     date: 'Oct 10, 2023',
     author: 'Dr. Dhirendra Yadav'
@@ -56,7 +55,7 @@ const defaultBlogPosts: { [key: string]: BlogPost } = {
     id: 'blog-5',
     title: 'Daily Diet According to Ayurveda',
     excerpt: 'Balance your Doshas through mindful eating — discover how meal timing and food combinations affect overall health.',
-    image: '/images/blog/diet.jpg',
+  image: '/assets/images/shc_logo_exact.svg',
     category: 'Nutrition',
     date: 'Oct 05, 2023',
     author: 'Dr. Sunitha Yadav'

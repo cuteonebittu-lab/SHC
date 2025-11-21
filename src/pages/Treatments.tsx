@@ -62,7 +62,7 @@ const Treatments = () => {
   return (
     <div className="flex flex-col">
       {/* Treatments Hero */}
-      <section className="bg-primary-50 py-16">
+  <section className="bg-green-50 py-16">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold mb-6">Conditions & Treatments</h1>
@@ -99,7 +99,7 @@ const Treatments = () => {
                         className="flex items-center text-gray-600"
                       >
                         <svg
-                          className="w-5 h-5 text-primary-600 mr-2"
+                          className="w-5 h-5 text-green-800 mr-2"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -123,7 +123,7 @@ const Treatments = () => {
       ))}
 
       {/* Personalized Care Section */}
-      <section className="py-16 bg-primary-50">
+  <section className="py-16 bg-green-50">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">
@@ -136,7 +136,7 @@ const Treatments = () => {
             </p>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center text-primary-600">
+                <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center text-green-800">
                   <svg
                     className="w-8 h-8"
                     fill="none"
@@ -158,7 +158,7 @@ const Treatments = () => {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center text-primary-600">
+                <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center text-green-800">
                   <svg
                     className="w-8 h-8"
                     fill="none"
@@ -180,7 +180,7 @@ const Treatments = () => {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center text-primary-600">
+                <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center text-green-800">
                   <svg
                     className="w-8 h-8"
                     fill="none"

@@ -17,86 +17,89 @@ If you are developing a production application, we recommend updating the config
 
 ```js
 export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+  # SHC — Clinic Website (React + TypeScript + Vite)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+  A responsive clinic website built with React, TypeScript, Vite and Tailwind CSS. The project includes pages for services, blog, appointments, and doctor profiles. It's set up for local development with Vite and is deployable to platforms like Vercel.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  ## Key features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+  - React 19 + TypeScript
+  - Vite for fast development and builds
+  - Tailwind CSS for styling
+  - React Router for client routing
+  - Forms with react-hook-form and validation via zod
+  - SEO helpers (react-helmet-async)
+  - Image utilities and a script to generate placeholders
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+  ## Tech stack
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', ['./tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  - react, react-dom
+  - typescript, vite
+  - tailwindcss, postcss, autoprefixer
+  - react-router-dom, framer-motion
+  - react-hook-form, zod
 
-## Google Maps Integration
+  Check `package.json` for exact versions and available npm scripts.
 
-The contact page includes an interactive Google Map showing the clinic location. To enable the map:
+  ## Prerequisites
 
-1. **Get a Google Maps API Key:**
-   - Go to [Google Cloud Console](https://console.cloud.google.com/google/maps-apis/)
-   - Create a new project or select an existing one
-   - Enable the following APIs:
-     - Maps JavaScript API
-     - Places API
-   - Create credentials (API key)
-   - Restrict the API key to your domain for security
+  - Node.js 18+ (or a modern LTS)
+  - npm (or yarn/pnpm)
 
-2. **Configure the API Key:**
-   - Copy the `.env` file and rename it to `.env.local`
-   - Replace `your_google_maps_api_key_here` with your actual API key:
-   ```
-   VITE_GOOGLE_MAPS_API_KEY=your_actual_api_key_here
-   ```
+  ## Quick start
 
-3. **Features:**
-   - Interactive map showing clinic location in Juinagar, Navi Mumbai
-   - Custom marker with clinic branding
-   - Styled map with clean, professional appearance
-   - "Open in Google Maps" link for directions
-   - Responsive design that works on all devices
+  Open a terminal at the project root and run:
 
-The map will automatically center on the clinic location and display a custom marker.
+  ```powershell
+  npm install
+  npm run dev
+  ```
+
+  This starts the Vite dev server and opens the app in your browser.
+
+  Other useful scripts (see `package.json`):
+
+  - `npm run build` — build the production bundle (runs `tsc -b && vite build`)
+  - `npm run preview` — preview the production build locally
+  - `npm run lint` — run ESLint across the repo
+  - `npm run generate-placeholders` — run the helper script in `scripts/` to generate placeholder assets
+
+  ## Project structure (high level)
+
+  - `src/` — application source
+    - `pages/` — top-level routes (Home, About, Services, Blog, Contact, Appointment)
+    - `components/` — UI components and shared pieces
+    - `layouts/` — page layouts (e.g. `MainLayout`)
+    - `assets/`, `styles/` — static styles and assets
+  - `public/` — static public assets served as-is
+  - `scripts/` — helper scripts (e.g. `generate-placeholders.js`)
+  - `vite.config.ts`, `tsconfig*.json`, `postcss.config.js`, `tailwind.config.js`
+
+  ## Deployment
+
+  Vercel is a good fit (there's a `vercel.json` included). Build uses Vite; the `build` script runs `tsc -b && vite build`.
+
+  ## Notes & tips
+
+  - If you see TypeScript project references errors when running `npm run build`, ensure `typescript` is installed (it's in `devDependencies`) and run `npm install` first.
+  - To add images, put them under `public/assets/images` or update the components that reference `public/` assets.
+
+  ## Contributing
+
+  1. Fork the repo or create a branch.
+  2. Install deps: `npm install`
+  3. Make changes and run `npm run dev` to test.
+  4. Open a PR describing your changes.
+
+  ## License
+
+  No license specified in this repository. Add a `LICENSE` file if you want to open-source this project under a specific license.
+
+  ---
+
+  If you'd like, I can also:
+
+  - run a quick lint/build check in a terminal (requires installing deps), or
+  - add a short CONTRIBUTING.md or a basic LICENSE file.
+
+  Tell me which follow-up you'd like next.

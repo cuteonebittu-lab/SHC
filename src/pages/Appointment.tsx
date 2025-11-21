@@ -250,7 +250,7 @@ Additional Message: ${data.additionalMessage || 'No additional notes'}`;
         <div className="max-w-5xl mx-auto text-center px-6">
           <h3 className="text-3xl font-bold text-green-800 mb-6">Visit Our Clinic</h3>
           <div className="flex items-center justify-center mb-4">
-            <img src="/assets/images/logo.svg" alt="Saanvi Healthcare Centre Logo" className="h-12 mr-4" />
+            <img src="/assets/images/shc_logo_exact.svg" alt="Saanvi Healthcare Centre Logo" className="h-12 mr-4" />
             <p className="text-gray-700">
               No.6 Saraswati Sadan CHS, Sec: 23, Plot- 211, Juinagar, Navi Mumbai
             </p>
@@ -259,7 +259,7 @@ Additional Message: ${data.additionalMessage || 'No additional notes'}`;
           {/* Replace with your actual Google Map embed */}
           <div className="w-full h-96 rounded-xl overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.7364564546727!2d75.8648458747445!3d23.802446290235376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39636e0d982eefff%3A0xb8c537a7bb5b3d53!2sSaanvi%20Healthcare%20Centre!5e0!3m2!1sen!2sin!4v1729856400000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d965258.4184510203!2d71.7759363608222!3d19.083921509681474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c11beda85711%3A0xa324137ba3c1c4da!2sSaanvi%20Healthcare%20Centre!5e0!3m2!1sen!2sus!4v1763526734859!5m2!1sen!2sus"
               width="100%" height="100%" style={{ border: 0 }} allowFullScreen={true} loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>

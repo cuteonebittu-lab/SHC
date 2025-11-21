@@ -1,12 +1,11 @@
 interface TestimonialProps {
   name: string;
   title: string;
-  image?: string;
   content: string;
   rating: number;
 }
 
-const TestimonialCard = ({ name, title, image, content, rating }: TestimonialProps) => {
+const TestimonialCard = ({ name, title, content, rating }: TestimonialProps) => {
   return (
     <div className="reveal bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
       {/* Rating Stars */}
@@ -30,15 +29,13 @@ const TestimonialCard = ({ name, title, image, content, rating }: TestimonialPro
 
       {/* Author */}
       <div className="flex items-center">
-        {image && (
-          <div className="flex-shrink-0 mr-4">
-            <img
-              src={`/assets/images/testimonials/${image}`}
-              alt={name}
-              className="w-12 h-12 rounded-full object-cover"
-            />
-          </div>
-        )}
+        <div className="flex-shrink-0 mr-4">
+          <img
+            src={'/assets/images/shc_logo_exact.svg'}
+            alt={name}
+            className="w-12 h-12 rounded-full object-cover"
+          />
+        </div>
         <div>
           <div className="font-semibold text-gray-900">{name}</div>
           <div className="text-sm text-gray-500">{title}</div>
