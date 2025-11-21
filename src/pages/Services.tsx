@@ -11,27 +11,27 @@ const fadeIn = {
 
 const services = {
   drDhirendra: [
-    { icon: '🍬', title: 'Diabetes Management', description: 'Medical therapy, sugar monitoring, lifestyle & diet optimization.' },
+    { icon: '🍬', title: 'Diabetes Management', description: 'Medical therapy, sugar monitoring, lifestyle & diet optimization, uncontrolled diabetes, diabetes complications.' },
     { icon: '❤️', title: 'Hypertension (High Blood Pressure)', description: 'BP management, medication adjustment, cardiac protection.' },
     { icon: '💧', title: 'Renal (Kidney) Impairment', description: 'Chronic kidney disease management, diet & drug monitoring.' },
-    { icon: '💗', title: 'Cardiac Health', description: 'Cholesterol control, ECG evaluation, preventive cardiology.' },
-    { icon: '🧠', title: 'Neurological Conditions', description: 'Migraine, stroke follow-up, neuropathy & nerve care.' },
-    { icon: '🫁', title: 'Respiratory Disorders (Asthma, COPD)', description: 'Inhalation therapy, medication regulation, pulmonary rehab.' },
+    { icon: '💗', title: 'Cardiac Health', description: 'Cholesterol control, ECG evaluation, preventive cardiology, myocardial infarction, heart ailments.' },
+    { icon: '🧠', title: 'Neurological Conditions', description: 'Migraine, stroke, neuropathy & nerve care, seizures, parkinsons disease.' },
+    { icon: '🫁', title: 'Respiratory Disorders (Asthma, COPD)', description: 'Inhalation therapy, medication regulation, pulmonary rehab, tuberculosis.' },
     { icon: '🔥', title: 'Digestive Disorders (GERD, IBS, Ulcers)', description: 'Evidence-based medicine with dietary modification.' },
-    { icon: '🦴', title: 'Joint & Bone Disorders (Arthritis, Osteoporosis)', description: 'Pain management, physiotherapy integration.' },
+    { icon: '🦴', title: 'Joint & Bone Disorders (Arthritis, Osteoporosis)', description: 'Pain management, rheumatoid arthritis, gout, osteoarthritis.' },
     { icon: '🩺', title: 'General Health Check-ups', description: 'Preventive health screenings, vaccinations, medical reviews.' },
-    { icon: '💉', title: 'Post-COVID Recovery & Fatigue', description: 'Immunity restoration, lung function support, energy tonics.' },
+    { icon: '🤒', title: 'Infectious Diseases and Fever', description: 'Diagnosis and management of various infectious diseases and fevers.' },
     { icon: '💊', title: 'Chronic Disease Management', description: 'Long-term care with integrated follow-up and medical supervision.' },
     { icon: '👵', title: 'Geriatric Care', description: 'Specialized care for elderly patients, focusing on age-related health issues.' }
   ],
   drSunitha: [
     { icon: '🌿', title: 'Detoxification Therapy', description: 'Complete body cleansing and rejuvenation treatments.' },
-    { icon: '💆', title: 'Stress, Anxiety & Insomnia (Manasika Rogas)', description: 'Oil Drip Therapy, Nasal Administration, Oil Massage, herbal support.' },
+    { icon: '💆', title: 'Stress, Anxiety & Insomnia (Manasika Rogas)', description: 'Nasal Administration, psychotherapy, ayurvedic ghrita and herbomineral medications, herbal support.' },
     { icon: '🍎', title: 'Obesity & Weight Management', description: 'Herbal fat-burners, metabolic correction, yoga, and diet.' },
     { icon: '⚕️', title: 'Spine and nerve diseases', description: 'Ayurvedic treatments for back pain, sciatica, and neurological support.' },
     { icon: '🤰', title: 'Women’s Health (PCOD, Menstrual Disorders)', description: 'Hormonal balancing, fertility care, and prenatal therapies.' },
     { icon: '👶', title: 'Pediatric Care (Bal Chikitsa)', description: 'Immunity boosting and growth support with herbal tonics.' },
-    { icon: '🦴', title: 'Joint & Bone Disorders (Sandhivata, Osteoarthritis)', description: 'Ayurvedic massage, medicated oils, and herbal formulations.' },
+    { icon: '🦴', title: 'Joint & Bone Disorders (Sandhivata, Osteoarthritis)', description: 'Medicated oils, and herbal formulations.' },
     { icon: '🔥', title: 'Digestive Disorders (Ajeerna, Acidity, IBS)', description: 'Herbal detox, gut balancing, and dietary correction.' },
     { icon: '💧', title: 'Renal & Urinary Disorders (Mutravaha Srotas)', description: 'Herbal diuretics, detoxification, and kidney care.' },
     { icon: '🌸', title: 'Skin & Hair Care (Psoriasis, Dandruff, Hair Fall)', description: 'Herbal packs, medicated oils, and internal cleansing.' },
@@ -97,7 +97,7 @@ const Services = () => {
             page="services"
             section="dr-dhirendra"
             field="specialty"
-            defaultValue="Specialist in Internal Medicine & Chronic Disease Management"
+            defaultValue="Specialist in Internal Medicine and Diabetes"
             tag="p"
             className="text-center text-gray-600 mb-10"
           />
@@ -159,7 +159,7 @@ const Services = () => {
             page="services"
             section="dr-sunitha"
             field="specialty"
-            defaultValue="Specialist in Ayurvedic Medicine, Panchakarma & Holistic Healing"
+            defaultValue="Specialist in Ayurveda medicine and Chronic Disease Management"
             tag="p"
             className="text-center text-gray-600 mb-10"
           />

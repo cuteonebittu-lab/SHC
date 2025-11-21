@@ -4,10 +4,10 @@ import GoogleMap from '../components/GoogleMap';
 
 const contactInfo = {
   address: "No.6 Saraswati Sadan CHS, Sec: 23, Plot- 211, Juinagar, Navi Mumbai",
-  phone: "+91 98765 43210",
+  phone: "+91 89768 71584",
   email: "contact@saanvihealthcare.com",
-  timings: "Monday–Saturday: 9 AM – 8 PM",
-  whatsapp: "+919876543210"
+  timings: "Monday–Saturday: 10:00 AM – 9:00 PM",
+  whatsapp: "+918976871584"
 };
 
 const Contact = () => {
