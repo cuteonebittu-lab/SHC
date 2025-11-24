@@ -1,6 +1,13 @@
+ import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 const WhatsAppButton = () => {
+  const navigate = useNavigate();
   const whatsappNumber = '8976871584'; // Replace with actual WhatsApp number
-  const callNumber = '+8976871584'; // Replace with actual call number
+
+  const handleCallClick = () => {
+    navigate('/contact');
+  };
 
   return (
     <div className="fixed bottom-6 right-6 flex flex-col space-y-3 z-50">
@@ -13,13 +20,13 @@ const WhatsAppButton = () => {
       >
         <i className="fab fa-whatsapp text-2xl"></i>
       </a>
-      <a 
-        href={`tel:${callNumber}`} 
+      <button 
+        onClick={handleCallClick}
         className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition" 
         title="Call Now"
       >
         <i className="fas fa-phone text-2xl"></i>
-      </a>
+      </button>
     </div>
   );
 };
