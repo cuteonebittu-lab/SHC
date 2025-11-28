@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { doctors } from './About';
 import { getDoctorTimings, generateTimeSlots } from '../utils/appointmentUtils';
-import Select from '../components/ui/Select'; // Import the custom Select component
+import Select from '../components/ui/Select';
 
 // Form validation schema
 const appointmentSchema = z.object({

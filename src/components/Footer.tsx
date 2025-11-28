@@ -1,4 +1,3 @@
-import React from 'react';
 import EditableText from './EditableText';
 
 const Footer: React.FC = () => {

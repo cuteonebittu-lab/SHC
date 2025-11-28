@@ -3,11 +3,6 @@ import { useNavigate } from 'react-router-dom';
 const WhatsAppButton = () => {
   const navigate = useNavigate();
   const whatsappNumber = '+918976871584'; // Replace with actual WhatsApp number
-  // Removed callNumber as it's no longer used for direct calls
-
-  const handleCallClick = () => {
-    navigate('/contact');
-  };
 
   return (
     <div className="fixed bottom-6 right-6 flex flex-col space-y-3 z-50">
@@ -21,7 +16,7 @@ const WhatsAppButton = () => {
         <i className="fab fa-whatsapp text-2xl"></i>
       </a>
       <button 
-        onClick={handleCallClick}
+        onClick={() => navigate('/contact')}
         className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition" 
         title="Call Now"
       >

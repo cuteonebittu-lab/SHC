@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, type SubmitHandler } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import Button from './ui/Button';
 import Input from './ui/Input';
@@ -18,7 +18,23 @@ interface AppointmentFormData {
   message?: string;
 }
 
-const doctorsData = [
+interface Option {
+  value: string;
+  label: string;
+}
+
+interface DoctorTimings {
+  'in-clinic': Option[];
+  'online': Option[];
+}
+
+interface DoctorData {
+  value: string;
+  label: string;
+  timings: DoctorTimings;
+}
+
+const doctorsData: DoctorData[] = [
   { 
     value: 'dr-dhirendra', 
     label: 'Dr. Dhirendra Yadav (MD, Internal Medicine)',
@@ -62,7 +78,7 @@ const doctorsData = [
   // Add more doctors if needed
 ];
 
-const consultationTypes = [
+const consultationTypes: Option[] = [
   { value: 'in-clinic', label: 'In-clinic Visit' },
   { value: 'online', label: 'Online Consultation' },
 ];
@@ -75,23 +91,33 @@ const AppointmentForm = () => {
     setValue,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<AppointmentFormData>();
+  } = useForm<AppointmentFormData>({
+    defaultValues: {
+      doctor: doctorsData[0].value, // Set default doctor
+      consultationType: consultationTypes[0].value as 'in-clinic' | 'online', // Ensure correct type
+    },
+  });
 
   const selectedDoctor = watch('doctor');
   const selectedConsultationType = watch('consultationType');
 
-  const [availableTimeSlots, setAvailableTimeSlots] = useState<{ value: string; label: string }[]>([]);
+  const [availableTimeSlots, setAvailableTimeSlots] = useState<Option[]>([]);
 
   useEffect(() => {
-    const doctor = doctorsData.find(d => d.value === selectedDoctor);
-    if (doctor && selectedConsultationType) {
-      setAvailableTimeSlots(doctor.timings[selectedConsultationType] || []);
+    const currentDoctor = doctorsData.find(d => d.value === selectedDoctor);
+    
+    if (currentDoctor && selectedConsultationType) {
+      const slots = currentDoctor.timings[selectedConsultationType] || [];
+      setAvailableTimeSlots(slots);
+      // Reset time if the current selected time is no longer available
+      if (!slots.some(slot => slot.value === watch('time'))) {
+        setValue('time', '');
+      }
     } else {
       setAvailableTimeSlots([]);
+      setValue('time', ''); // Clear selected time if no valid doctor/consultation
     }
-    // Reset time when doctor or consultation type changes
-    setValue('time', '');
-  }, [selectedDoctor, selectedConsultationType, setValue]);
+  }, [selectedDoctor, selectedConsultationType, setValue, watch]);
 
 
   const services = [
@@ -101,7 +127,7 @@ const AppointmentForm = () => {
     { value: 'wellness', label: 'Wellness Program' },
   ];
 
-  const onSubmit = async (data: AppointmentFormData) => {
+  const onSubmit: SubmitHandler<AppointmentFormData> = async (data) => {
     try {
       // Add your API call here
       await new Promise(resolve => setTimeout(resolve, 1500)); // Simulated API call
