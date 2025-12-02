@@ -25,7 +25,7 @@ const services = {
     { icon: '👵', title: 'Geriatric Care', description: 'Specialized care for elderly patients, focusing on age-related health issues.' }
   ],
   drSunitha: [
-    { icon: '🌿', title: 'Detoxification Therapy', description: 'Complete body cleansing and rejuvenation treatments.' },
+    { icon: '🌸', title: 'Skin & Hair Care (Psoriasis, Acne, Dandruff, Hair Fall)', description: 'Herbal packs, medicated oils, and internal cleansing.' },
     { icon: '💆', title: 'Stress, Anxiety & Insomnia (Manasika Rogas)', description: 'Nasal Administration, psychotherapy, ayurvedic ghrita and herbomineral medications, herbal support.' },
     { icon: '🍎', title: 'Obesity & Weight Management', description: 'Herbal fat-burners, metabolic correction, yoga, and diet.' },
     { icon: '⚕️', title: 'Spine and nerve diseases', description: 'Ayurvedic treatments for back pain, sciatica, and neurological support.' },
@@ -34,7 +34,7 @@ const services = {
     { icon: '🦴', title: 'Joint & Bone Disorders (Sandhivata, Osteoarthritis)', description: 'Medicated oils, and herbal formulations.' },
     { icon: '🔥', title: 'Digestive Disorders (Ajeerna, Acidity, IBS)', description: 'Herbal detox, gut balancing, and dietary correction.' },
     { icon: '💧', title: 'Renal & Urinary Disorders (Mutravaha Srotas)', description: 'Herbal diuretics, detoxification, and kidney care.' },
-    { icon: '🌸', title: 'Skin & Hair Care (Psoriasis, Dandruff, Hair Fall)', description: 'Herbal packs, medicated oils, and internal cleansing.' },
+    { icon: '🌿', title: 'Detoxification Therapy', description: 'Complete body cleansing and rejuvenation treatments.' },
     { icon: '🌞', title: 'Rejuvenation & Rasayana Therapy', description: 'Vitality, anti-aging, and immunity-building treatments.' },
     { icon: '🙌', title: 'Marma Therapy', description: 'Energy-point massage for deep relaxation and healing.' }
   ]

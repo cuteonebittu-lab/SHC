@@ -19,6 +19,21 @@ const treatments = [
         description: 'Balanced treatment approach for thyroid conditions.',
         treatments: ['Hormone level monitoring', 'Medication management', 'Dietary guidance', 'Ayurvedic herbs'],
       },
+      {
+        name: 'Stroke',
+        description: 'Integrated rehabilitation and management to improve recovery and prevent recurrence.',
+        treatments: ['Physical therapy', 'Medication management', 'Lifestyle modifications', 'Cognitive therapy'],
+      },
+      {
+        name: 'Spine and Joint Disorders',
+        description: 'Comprehensive care for musculoskeletal conditions, combining pain relief with long-term solutions.',
+        treatments: ['Pain management', 'Physiotherapy', 'Ayurvedic treatments', 'Lifestyle adjustments'],
+      },
+      {
+        name: 'Auto-Immune Disorders',
+        description: 'Integrated management for various autoimmune conditions focusing on symptom control and immune modulation.',
+        treatments: ['Immunosuppressive therapy', 'Anti-inflammatory diet', 'Ayurvedic herbs', 'Lifestyle modifications'],
+      },
     ],
   },
   {
@@ -53,6 +68,11 @@ const treatments = [
         name: 'Weight Management',
         description: 'Personalized programs for healthy weight management.',
         treatments: ['Medical assessment', 'Dietary planning', 'Exercise guidance', 'Ayurvedic therapies'],
+      },
+      {
+        name: 'Yoga and Diet',
+        description: 'Tailored yoga and diet plans to support recovery and management of various health conditions.',
+        treatments: ['Customized yoga therapy', 'Personalized dietary charts', 'Lifestyle counseling', 'Mind-body techniques'],
       },
     ],
   },

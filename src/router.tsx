@@ -10,6 +10,7 @@ import Appointment from './pages/Appointment';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import ErrorPage from './pages/ErrorPage'; // Import the new ErrorPage component
+import SingleBlogPost from './pages/SingleBlogPost'; // Import the new SingleBlogPost component
 
 export const router = createHashRouter([
   {
@@ -44,6 +45,10 @@ export const router = createHashRouter([
       {
         path: 'blog',
         element: <Blog />,
+      },
+      {
+        path: 'blog/:id', // Dynamic route for individual blog posts
+        element: <SingleBlogPost />,
       },
       {
         path: 'contact',

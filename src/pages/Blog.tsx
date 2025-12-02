@@ -19,7 +19,7 @@ const defaultBlogPosts: { [key: string]: BlogPost } = {
     id: 'blog-1',
     title: 'Boost Your Immunity the Ayurvedic Way',
     excerpt: 'Discover simple Ayurvedic herbs and daily habits that can help you strengthen your immunity naturally and maintain vitality.',
-  image: '/assets/images/shc_logo_exact.svg',
+    image: '/images/blog/herbs.jpg',
     category: 'Ayurveda',
     date: 'Oct 26, 2023',
     author: 'Dr. Sunitha Yadav'
@@ -28,7 +28,7 @@ const defaultBlogPosts: { [key: string]: BlogPost } = {
     id: 'blog-2',
     title: 'Managing Diabetes Holistically',
     excerpt: 'Understand how integrating modern medicine with Ayurvedic diet principles can help manage diabetes more effectively.',
-  image: '/assets/images/shc_logo_exact.svg',
+    image: '/images/blog/diet.jpg',
     category: 'Modern Medicine',
     date: 'Oct 20, 2023',
     author: 'Dr. Dhirendra Yadav'
@@ -37,7 +37,7 @@ const defaultBlogPosts: { [key: string]: BlogPost } = {
     id: 'blog-3',
     title: 'Stress Relief Through Ayurveda',
     excerpt: 'Learn how herbal therapies, breathing techniques, and lifestyle changes from Ayurveda can balance your mind and emotions.',
-  image: '/assets/images/shc_logo_exact.svg',
+    image: '/images/blog/stress.jpg',
     category: 'Ayurveda',
     date: 'Oct 15, 2023',
     author: 'Dr. Sunitha Yadav'
@@ -46,7 +46,7 @@ const defaultBlogPosts: { [key: string]: BlogPost } = {
     id: 'blog-4',
     title: 'Monsoon Health Tips',
     excerpt: "Stay safe this monsoon with expert preventive measures from both modern medicine and Ayurveda's seasonal regimen (Ritu Charya).",
-  image: '/assets/images/shc_logo_exact.svg',
+    image: '/images/blog/chronic-conditions.jpg',
     category: 'Seasonal Health',
     date: 'Oct 10, 2023',
     author: 'Dr. Dhirendra Yadav'
@@ -55,7 +55,7 @@ const defaultBlogPosts: { [key: string]: BlogPost } = {
     id: 'blog-5',
     title: 'Daily Diet According to Ayurveda',
     excerpt: 'Balance your Doshas through mindful eating — discover how meal timing and food combinations affect overall health.',
-  image: '/assets/images/shc_logo_exact.svg',
+    image: '/images/blog/remedies.jpg',
     category: 'Nutrition',
     date: 'Oct 05, 2023',
     author: 'Dr. Sunitha Yadav'
@@ -88,7 +88,7 @@ const Blog = () => {
       id: newId,
       title: 'New Blog Post Title',
       excerpt: 'This is a short excerpt for the new blog post.',
-      image: '/images/placeholder.jpg', // Default placeholder image
+      image: '/images/blog/placeholder.jpg', // Default placeholder image (assuming a placeholder image exists or will be added here)
       category: 'General',
       date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
       author: 'Admin'

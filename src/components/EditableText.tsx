@@ -7,7 +7,7 @@ interface EditableTextProps {
   field: string;
   defaultValue: string;
   className?: string;
-  tag?: 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  tag?: 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
   multiline?: boolean;
 }
 
