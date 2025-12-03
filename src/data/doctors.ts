@@ -5,7 +5,7 @@ export const doctors: Doctor[] = [
     name: 'Dhirendra Yadav',
     title: 'MBBS, MD General Medicine, CCDM (Diabetes)',
     specialty: 'General Medicine',
-    experience: '15+ years',
+    experience: '15+ years, Associate Professor in LTM Medical College and LTM General Hospital, SION, MUMBAI',
     image: '/assets/dr-dhirendra-yadav.svg',
     description: 'Dhirendra Yadav is a highly experienced general physician with expertise in managing chronic diseases and preventive healthcare.',
     inClinicTimings: '7:00 pm to 9:30 pm',

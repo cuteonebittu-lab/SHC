@@ -110,6 +110,7 @@ const About = () => {
                 specialization={doctor.specialty}
                 qualifications={[doctor.title]}
                 availability={doctor.inClinicTimings}
+                experience={doctor.experience}
               />
             ))}
           </div>
